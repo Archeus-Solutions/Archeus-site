@@ -1,0 +1,61 @@
+@font-face {
+    font-family: "baseFont";
+    src: url(assets/BricolageGrotesqueFont/BricolageGrotesque.ttf);
+}
+
+body {
+    padding: 0px;
+    margin: 0px;
+
+    background-color: #010101;
+    color: white;
+
+    font-family: baseFont;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin: 0;
+    padding: 0;
+
+    background-color: #010101;
+
+    border-bottom: 1px solid rgb(150, 150, 150);
+}
+
+.website-content {
+    margin: 10px;
+}
+
+#left-area {
+    margin: 0px 0px;
+}
+
+#right-area a {
+    color: white;
+    text-decoration: none;
+
+    padding-right: 40px;
+
+    font-size: 15px;
+}
+
+#right-area button {
+    background-color: transparent;
+    border: 1px solid rgb(150, 150, 150);
+
+    display: inline-flex;
+
+    padding: 10px;
+    margin-right: 30px;
+
+    justify-content: center;
+    align-items: center;
+}
+
+#header-thingy {
+    margin: 10px 10px;
+}
