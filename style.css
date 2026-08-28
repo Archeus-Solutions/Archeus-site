@@ -27,11 +27,22 @@ nav {
 }
 
 .site-content {
-    width: 100%;
+    width: 65%;
 
     margin-left: auto;
     margin-right: auto;
 
+}
+
+#welcome-table {
+    width: 65%;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    text-align: left;
+
+    line-height: 0.1;
 }
 
 .header-text {
@@ -41,7 +52,11 @@ nav {
 }
 
 .site-content p {
-    line-height: 0.4;
+}
+
+#landing-logo {
+    width: 350px;
+    height: 350px;
 }
 
 #header-book {
@@ -82,11 +97,4 @@ nav {
 
 #blue {
     color: rgb(100, 100, 253);
-}
-
-#welcome-table {
-    margin-left: auto;
-    margin-right: auto;
-
-    text-align: left;
 }
