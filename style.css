@@ -1,3 +1,11 @@
+:root {
+    --primary-purple: #7489ff;
+    --secondary-black: #010101;
+    --tertiary-white: #e8f0e9;
+    --text-color: #010101;
+    --highlight-color: #7489ff;
+}
+
 @font-face {
     font-family: baseFont;
     src: url(assets/BricolageGrotesqueFont/BricolageGrotesque.ttf);
@@ -6,9 +14,8 @@
 body {
     padding: 0px;
     margin: 0px;
-
-    background-color: #010101;
-    color: white;
+    background-color: #f3efe7;
+    color: var(--text-color);
 
     font-family: baseFont;
 }
@@ -27,59 +34,98 @@ nav {
     margin: 0px;
     padding: 10px;
 
-    background-color: #010101;
+    background-color: var(--secondary-black);
 
-    border-bottom: 1px solid rgb(150, 150, 150);
+    border-bottom: 1px solid color-mix(in srgb, var(--tertiary-white) 22%, transparent);
 }
 
-.site-content {
-
+.page-section {
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.welcome-text {
-    font-size: 100px;
+.page-section--dark {
+    background-color: var(--secondary-black);
+    color: var(--tertiary-white);
+    padding: 100px 0px 120px;
+}
 
+.page-section--about {
+    background-color: var(--tertiary-white);
+    color: var(--text-color);
+    padding: clamp(5rem,10vw,10rem);
+}
+
+.section-content {
+    width: 92%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.welcome-div-container {
+    margin-top: 0px;
+}
+
+.welcome-text p {
+    font-size: clamp(40px, 10vw, 140px);
+    line-height: 1.2;
     font-weight: bold;
+    margin: 0;
 }
 
-/* This is where the text lives */
-.text-area {
-
+#blue {
+    color: var(--primary-purple);
+    margin-top: -0.25em;
 }
 
-.info-area {
-    width: 80%;
-
-    margin: 0 auto;
-
-    gap: 200px;
-
-    display: flex;
-
-    text-align: left;
+.welcome-text p:nth-child(3) {
+  margin-top: -0.25em;
 }
 
 #welcome-div {
-    width: 80%;
-
-    margin-left: auto;
-    margin-right: auto;
-
-    line-height: 0.1;
-
     gap: 200px;
 
     display: flex;
-
+    justify-content: space-between;
     text-align: left;
 }
+#smallText {
+    margin-top: 20px;
+    max-width: 500px;
+    font-size: clamp(1.08rem,1.5vw,1.35rem);
+    line-height: 1.5;
+    font-weight: normal;
+    color: var(--tertiary-white);
+    opacity: .76;
+}
 
-#navbar-logo {
+/* book call button for welcome section */
+#welcome-button {
+    margin-top: 30px;
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: var(--tertiary-white);
+    border: 1px solid var(--tertiary-white);
+}
+#welcome-button a {
+    text-align: center;
+    text-decoration: none;
+    font-family: baseFont;
+    color: var(--secondary-black);
+}
+#welcome-button span {
+    margin-left: 10px;
+}
+
+/* * navbar-logo = text, logo = icon */
+.navbar-logo {
     line-height: 0.5;
     text-decoration: none;
-    font-size: 24px;
+    font-size: 15px;
+    margin-left: 30px;
 
-    color: white;
+    color: var(--tertiary-white);
 
     display: flex;
 
@@ -89,31 +135,82 @@ nav {
 }
 
 .logo {
-    width: 50px;
+    width: 30px;
 }
 
 #landing-logo {
-    min-width: 100px;
-    max-width: 300px;
+    min-width: 150px;
+    max-width: 350px;
+    margin: 0px 120px 0px 0px;
 }
 
-#header-book {
-    display: inline-flex;
+.about-content {
+    display: grid;
+    grid-template-columns: 1.1fr .8fr;
+    gap: 10%;
+    max-width: 1050px;
+    margin-left: 15%;
+}
 
-    background-color: white;
+.section-kicker {
+    margin: 0px 0px 24px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
 
-    
-    border: 1px solid white;
+.about-content h2 {
+    max-width: 760px;
+    margin: 0px;
+    font-size: clamp(2.5rem, 7vw, 6rem);
+    line-height: 0.98;
+}
 
+.about-copy {
+    grid-column: 2;
+    max-width: 560px;
+}
+
+.about-copy p {
+    margin-top: 20px;
+    font-size: clamp(1.08rem, 1.5vw, 1.35rem);
+}
+
+@media (max-width: 700px) {
+    #welcome-div {
+        flex-direction: column;
+        gap: 60px;
+    }
+
+    #landing-logo {
+        min-width: 120px;
+        width: 120px;
+        margin: 0px;
+    }
+}
+
+/* * uses negative margin to cancel out padding from inherited */
+.navbar-book a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
     text-decoration: none;
+    margin-right: -30px;
+    font-family: baseFont;
 }
 
-#left-area {
+.navbar-book span {
+    margin-left: 8px;
+}
+
+.left-area {
     margin: 0px 0px;
 }
 
-#right-area a {
-    color: white;
+.right-area a {
+    color: var(--tertiary-white);
     text-decoration: none;
 
     padding-right: 30px;
@@ -121,7 +218,7 @@ nav {
     font-size: 15px;
 }
 
-#right-area button {
+.right-area button {
     background-color: transparent;
     border: 1px solid rgb(150, 150, 150);
 
@@ -133,6 +230,19 @@ nav {
     text-align: center;
 }
 
-#blue {
-    color: rgb(100, 100, 253);
+/* This is where the text lives */
+.text-area {
+    background-color: var(--tertiary-white);
+}
+
+.info-area-text {
+    width: 80%;
+
+    margin: 0 auto;
+
+    gap: 200px;
+
+    display: flex;
+
+    text-align: left;
 }
