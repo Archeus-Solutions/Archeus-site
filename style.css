@@ -140,14 +140,54 @@ nav {
     font-weight: bold;
     background-color: var(--tertiary-white);
     border: 1px solid var(--tertiary-white);
+    transition: background-color .2s ease, border-color .2s ease, transform .2s ease;
 }
+#welcome-button:hover {
+    background-color: var(--primary-purple);
+    border: 1px solid var(--primary-purple);
+    transform: translateY(-4px);
+}
+
 #welcome-button a {
     text-align: center;
     text-decoration: none;
     font-family: baseFont;
     color: var(--secondary-black);
 }
+
 #welcome-button span {
+    margin-left: 10px;
+}
+
+
+/* services section button */
+#services-button {
+    display: block;
+    margin: 60px auto 0;
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: var(--secondary-black);
+    border: 1px solid var(--secondary-black);
+    transition: background-color .2s ease, border-color .2s ease, transform .2s ease;
+}
+#services-button:hover {
+    background-color: var(--tertiary-white);
+    border: 1px solid var(--tertiary-white);
+    transform: translateY(-4px);
+}
+
+#services-button a {
+    text-align: center;
+    text-decoration: none;
+    font-family: baseFont;
+    color: var(--tertiary-white);
+}
+#services-button:hover a {
+    color: var(--secondary-black);
+}
+
+#services-button span {
     margin-left: 10px;
 }
 
@@ -183,15 +223,17 @@ nav {
     grid-template-columns: 1.1fr .8fr;
     gap: 10%;
     max-width: 1050px;
-    margin-left: 15%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .services-content {
     display: grid;
-    grid-template-columns: 1.1fr .8fr;
-    gap: 10%;
-    max-width: 1050px;
-    margin-left: 15%;
+    grid-template-columns: minmax(220px, .75fr) minmax(0, 1.25fr);
+    gap: clamp(3rem, 9vw, 9rem);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .process-content {
@@ -199,7 +241,8 @@ nav {
     grid-template-columns: 1.1fr .8fr;
     gap: 10%;
     max-width: 1050px;
-    margin-left: 15%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .tagline-content {
@@ -209,7 +252,8 @@ nav {
     text-align: center;
     gap: 10%;
     max-width: 1050px;
-    margin-left: 15%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .tagline-content h2 {
@@ -260,6 +304,60 @@ nav {
     font-size: clamp(1.08rem, 1.5vw, 1.35rem);
 }
 
+.services-intro {
+    align-self: start;
+    position: sticky;
+    top: 100px;
+}
+
+.services-lead {
+    max-width: 360px;
+    margin: 2rem 0 0;
+    font-size: clamp(1.08rem, 1.5vw, 1.35rem);
+    line-height: 1.45;
+}
+
+.service-list {
+    border-top: 1px solid rgba(1, 1, 1, .55);
+}
+
+.service-item {
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr) 2rem;
+    gap: 1.25rem;
+    align-items: start;
+    padding: 1.5rem 0 1.65rem;
+    border-bottom: 1px solid rgba(1, 1, 1, .55);
+    transition: background-color .2s ease, transform .2s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .service-item:hover {
+        background-color: rgba(232, 240, 233, .16);
+        transform: translateX(.35rem);
+    }
+}
+
+.service-number {
+    padding-top: .35rem;
+    font-size: .8rem;
+    font-weight: bold;
+    opacity: .62;
+}
+
+.service-details h3 {
+    margin: 0;
+    font-size: clamp(1.35rem, 2.3vw, 2.15rem);
+    line-height: 1.05;
+}
+
+.service-details p {
+    max-width: 520px;
+    margin: .65rem 0 0;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
 .process-copy {
     grid-column: 2;
     max-width: 560px;
@@ -271,7 +369,7 @@ nav {
 }
 
 
-/* ! someone add a descriptive comment for what this does */
+/* * styling for mobile devices and small screens */
 @media (max-width: 700px) {
     #welcome-div {
         flex-direction: column;
@@ -282,6 +380,29 @@ nav {
         min-width: 120px;
         width: 120px;
         margin: 0px;
+    }
+
+    .services-content {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+    }
+
+    .services-intro {
+        position: static;
+    }
+
+    .services-lead {
+        margin-top: 1.5rem;
+    }
+
+    .service-item {
+        grid-template-columns: 2rem minmax(0, 1fr) 1.25rem;
+        gap: .75rem;
+        padding: 1.25rem 0 1.4rem;
+    }
+
+    .service-details p {
+        font-size: .95rem;
     }
 }
 
