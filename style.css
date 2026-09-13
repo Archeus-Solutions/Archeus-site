@@ -6,6 +6,17 @@
     --highlight-color: #7489ff;
 }
 
+/* selection color for text */
+::selection {
+    background-color: var(--highlight-color);
+    color: var(--tertiary-white);
+}
+
+.page-section--services ::selection {
+    background-color: var(--tertiary-white);
+    color: var(--secondary-black);
+}
+
 @font-face {
     font-family: baseFont;
     src: url(assets/BricolageGrotesqueFont/BricolageGrotesque.ttf);
@@ -39,6 +50,8 @@ nav {
     border-bottom: 1px solid color-mix(in srgb, var(--tertiary-white) 22%, transparent);
 }
 
+
+/* * page-section is a generic class for all sections of the page. Each section has a unique class for styling */
 .page-section {
     width: 100%;
     box-sizing: border-box;
@@ -47,10 +60,28 @@ nav {
 .page-section--dark {
     background-color: var(--secondary-black);
     color: var(--tertiary-white);
-    padding: 100px 0px 120px;
+    padding: 100px 0px 160px;
 }
 
 .page-section--about {
+    background-color: var(--tertiary-white);
+    color: var(--text-color);
+    padding: clamp(5rem,10vw,10rem);
+}
+
+.page-section--services {
+    background-color: var(--primary-purple);
+    color: var(--text-color);
+    padding: clamp(5rem,10vw,10rem);
+}
+
+.page-section--process {
+    background-color: var(--secondary-black);
+    color: var(--tertiary-white);
+    padding: clamp(5rem,10vw,10rem);
+}
+
+.page-section--tagline {
     background-color: var(--tertiary-white);
     color: var(--text-color);
     padding: clamp(5rem,10vw,10rem);
@@ -62,6 +93,8 @@ nav {
     margin-right: auto;
 }
 
+
+/* * welcome div (before we switched to section format) */
 .welcome-div-container {
     margin-top: 0px;
 }
@@ -144,6 +177,7 @@ nav {
     margin: 0px 120px 0px 0px;
 }
 
+/* * more section styling, tbh idk why it is split from the prior */
 .about-content {
     display: grid;
     grid-template-columns: 1.1fr .8fr;
@@ -152,15 +186,54 @@ nav {
     margin-left: 15%;
 }
 
-.section-kicker {
-    margin: 0px 0px 24px;
-    font-size: 0.95rem;
-    font-weight: bold;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+.services-content {
+    display: grid;
+    grid-template-columns: 1.1fr .8fr;
+    gap: 10%;
+    max-width: 1050px;
+    margin-left: 15%;
+}
+
+.process-content {
+    display: grid;
+    grid-template-columns: 1.1fr .8fr;
+    gap: 10%;
+    max-width: 1050px;
+    margin-left: 15%;
+}
+
+.tagline-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10%;
+    max-width: 1050px;
+    margin-left: 15%;
+}
+
+.tagline-content h2 {
+    max-width: 760px;
+    margin: 0px;
+    font-size: clamp(2.5rem, 7vw, 6rem);
+    line-height: 0.98;
+}
+
+.services-content h2 {
+    max-width: 760px;
+    margin: 0px;
+    font-size: clamp(2.5rem, 7vw, 6rem);
+    line-height: 0.98;
 }
 
 .about-content h2 {
+    max-width: 760px;
+    margin: 0px;
+    font-size: clamp(2.5rem, 7vw, 6rem);
+    line-height: 0.98;
+}
+
+.process-content h2 {
     max-width: 760px;
     margin: 0px;
     font-size: clamp(2.5rem, 7vw, 6rem);
@@ -177,6 +250,28 @@ nav {
     font-size: clamp(1.08rem, 1.5vw, 1.35rem);
 }
 
+.services-copy {
+    grid-column: 2;
+    max-width: 560px;
+}
+
+.services-copy p {
+    margin-top: 20px;
+    font-size: clamp(1.08rem, 1.5vw, 1.35rem);
+}
+
+.process-copy {
+    grid-column: 2;
+    max-width: 560px;
+}
+
+.process-copy p {
+    margin-top: 20px;
+    font-size: clamp(1.08rem, 1.5vw, 1.35rem);
+}
+
+
+/* ! someone add a descriptive comment for what this does */
 @media (max-width: 700px) {
     #welcome-div {
         flex-direction: column;
@@ -201,6 +296,7 @@ nav {
     font-family: baseFont;
 }
 
+/* navbar stuff */
 .navbar-book span {
     margin-left: 8px;
 }
