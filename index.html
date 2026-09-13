@@ -4,70 +4,94 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
-        <title>Homepage</title>
+        <title>Archeus | Hjemmeside</title>
     </head>
     <body>
         <nav>
-            <div id="left-area">
-                <a href="index.html" id="navbar-logo">
+            <div class="left-area">
+                <a href="index.html" class="navbar-logo">
                     <img class="logo" src="assets/svgs/archeus-icon.svg" alt="archeus-logo">
                     <h1>archeus</h1>
                 </a>
             </div>
-            <div id="right-area">
+            <div class="right-area">
+                <a href="services.html">Tjenester</a>
                 <a href="contact.html">Kontakt oss</a>
-                <a href="">Om oss</a>
-                <button id="navbar-book">
-                    <a href="">Book et møte</a>
+                <a href="about.html">Om oss</a>
+                <button class="navbar-book">
+                    <a href="">Book et møte<span aria-hidden="true">↗</span></a>
                 </button>
             </div>
         </nav>
 
-
-        <div class="site-content">
-            <div id="welcome-div">
-                <div class="welcome-text">
-                    <p>Innovate</p>
-                    <p id="blue">Your</p>
-                    <p>Presence.</p>
+        <!-- Main page content is split into full-width color bands. -->
+        <main>
+            <!-- The section owns the background; its child only controls content width. -->
+            <section id="top" class="page-section page-section--dark">
+                <div class="welcome-div-container section-content">
+                <div id="welcome-div">
+                    <div class="welcome-text">
+                        <p>Forfrem ditt</p>
+                        <p id="blue">inntrykk</p>
+                        <p>på nettet.</p>
+                        <p id="smallText">Vi legger det digitale grunnlaget som ambisiøse bedrifter trenger for å bli lagt merke til, vinne tillit og være klare for det som kommer.</p>
+                        <button id="welcome-button">
+                            <a href="">Book et møte<span aria-hidden="true">↗</span></a>
+                        </button>
+                    </div>
+                    <img id="landing-logo" src="assets/svgs/archeus-icon.svg" alt="logo">
                 </div>
-                
-                <img id="landing-logo" src="assets/svgs/archeus-icon.svg" alt="logo">
-            </div>
+                </div>
+            </section>
 
-            <div class="text-area">
-                <div class="info-area">
-                    <h1>An image</h1>
-                    <div>
-                        <h1>Kort om oss:</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <!-- A separate band can use its own color without exposing body edges. -->
+            <section class="page-section page-section--about">
+                <div class="section-content about-content">
+                    <!-- About content for the next homepage section. -->
+                    <h2>Et tydeligere digitalt uttrykk begynner her.</h2>
+                    <div class="about-copy">
+                        <p>Bedriften din gjør allerede det tunge arbeidet. Archeus sørger for at verden kan finne den, forstå den og huske den.</p>
+                        <p>Fra den første identiteten til systemene som holder den i gang - vi setter fokus på alle deler av din tilstedeværelse.</p>
                     </div>
                 </div>
+            </section>
 
-                <div class="info-area">
-                    <div>
-                        <h1>Greier</h1>
-
-                        <h2>Andre greier</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <!-- TODO: Placeholder section for services, to be assigned -->
+            <section class="page-section page-section--services">
+                <div class="section-content services-content">
+                    <h2>Placeholder section for services</h2>
+                    <div class="services-copy">
+                        <p>This part will include a brief overview of what we do, to encourage users to learn more.</p>
+                        <p>It should not use the same layout as the previous sections. This is placeholder text.</p>
                     </div>
-
-                    <!-- Siwtch out with a more appropriate image -->
-                    <h1>An image</h1>
                 </div>
+            </section>
 
-                <div class="info-area">
-                    <div>
-                        <h1>Greier</h1>
-
-                        <h2>Andre greier</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <!-- TODO: Placeholder section for process -->
+            <section class="page-section page-section--process">
+                <div class="section-content process-content">
+                    <h2>Placeholder section for process</h2>
+                    <div class="process-copy">
+                        <p>This part will encourage users to inquire further about our process.</p>
+                        <p>It should not use the same layout as the previous sections. This is placeholder text.</p>
                     </div>
-
-                    <!-- Siwtch out with a more appropriate image -->
-                    <h1>An image</h1>
                 </div>
-            </div>
-        </div>
+            </section>
+
+            <!-- TODO: add tagline section -->
+            <section class="page-section page-section--tagline">
+                <div class="section-content tagline-content">
+                    <h2>Placeholder for the tagline</h2>
+                </div>
+            </section>
+
+            <!-- ! commented out, no footer design yet
+            <footer>
+                <div class="footer-content">
+                    <p>super mega placeholder</p>
+                </div>
+            </footer>
+            -->
+        </main>
     </body>
 </html>
