@@ -79,6 +79,10 @@ nav {
     background-color: var(--secondary-black);
     color: var(--tertiary-white);
     padding: clamp(5rem,10vw,10rem);
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10%;
+    align-items: center;
 }
 
 .page-section--tagline {
@@ -140,14 +144,54 @@ nav {
     font-weight: bold;
     background-color: var(--tertiary-white);
     border: 1px solid var(--tertiary-white);
+    transition: background-color .2s ease, border-color .2s ease, transform .2s ease;
 }
+#welcome-button:hover {
+    background-color: var(--primary-purple);
+    border: 1px solid var(--primary-purple);
+    transform: translateY(-4px);
+}
+
 #welcome-button a {
     text-align: center;
     text-decoration: none;
     font-family: baseFont;
     color: var(--secondary-black);
 }
+
 #welcome-button span {
+    margin-left: 10px;
+}
+
+
+/* services section button */
+#services-button {
+    display: block;
+    margin: 60px auto 0;
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: var(--secondary-black);
+    border: 1px solid var(--secondary-black);
+    transition: background-color .2s ease, border-color .2s ease, transform .2s ease;
+}
+#services-button:hover {
+    background-color: var(--tertiary-white);
+    border: 1px solid var(--tertiary-white);
+    transform: translateY(-4px);
+}
+
+#services-button a {
+    text-align: center;
+    text-decoration: none;
+    font-family: baseFont;
+    color: var(--tertiary-white);
+}
+#services-button:hover a {
+    color: var(--secondary-black);
+}
+
+#services-button span {
     margin-left: 10px;
 }
 
@@ -183,40 +227,73 @@ nav {
     grid-template-columns: 1.1fr .8fr;
     gap: 10%;
     max-width: 1050px;
-    margin-left: 15%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .services-content {
     display: grid;
-    grid-template-columns: 1.1fr .8fr;
-    gap: 10%;
-    max-width: 1050px;
-    margin-left: 15%;
+    grid-template-columns: minmax(220px, .75fr) minmax(0, 1.25fr);
+    gap: clamp(3rem, 9vw, 9rem);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .process-content {
-    display: grid;
-    grid-template-columns: 1.1fr .8fr;
+    display: flex;
+    flex-direction: column;
     gap: 10%;
+    width: 100%;
     max-width: 1050px;
-    margin-left: 15%;
+    margin: 0;
+    gap: 2rem;
 }
 
-.tagline-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+/* * logo(s) placed in the process section. 
+! Currently being occupied by the SVG styling for our logo as a placeholder */
+#process-logos {
     gap: 10%;
     max-width: 1050px;
-    margin-left: 15%;
+    width: 100%;
+    margin: 0;
+}
+
+#process-logos svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.cls-1 {
+    fill: var(--tertiary-white);
+    fill-rule: evenodd;
+    stroke: none;
+    stroke-linejoin: round;
+    stroke-width: 0;
+}
+.cls-2 {
+    fill: var(--tertiary-white);
+}
+
+/* * display flex and its accomplices are commented out as they were interfering with the text alignment, 
+   * may be changed in the future as this is scuffed */
+.tagline-content {
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    text-align: center;
+    /* gap: 10%; */
+    max-width: 1050px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .tagline-content h2 {
     max-width: 760px;
     margin: 0px;
     font-size: clamp(2.5rem, 7vw, 6rem);
-    line-height: 0.98;
+    /* line-height: 0.98; */
+    display: inline;
 }
 
 .services-content h2 {
@@ -239,6 +316,45 @@ nav {
     font-size: clamp(2.5rem, 7vw, 6rem);
     line-height: 0.98;
 }
+.process-content h3 {
+    max-width: 760px;
+    margin: 0px;
+    font-size: clamp(1rem, 2.5vw, 2.5rem);
+    font-variant: small-caps;
+    line-height: 0.98;
+}
+
+/* this part animates the process section link, uses all the fancy stuff below to bring out the > and move text */
+.process-link-heading a {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    color: inherit;
+    text-decoration: underline;
+    transition: transform .2s ease;
+    color: var(--highlight-color);
+}
+
+.process-link-heading a::before {
+    content: ">";
+    position: absolute;
+    right: 100%;
+    margin-right: .5rem;
+    opacity: 0;
+    transform: translateX(.5rem);
+    transition: opacity .2s ease, transform .2s ease;
+}
+
+.process-link-heading a:hover,
+.process-link-heading a:focus-visible {
+    transform: translateX(.5rem);
+}
+
+.process-link-heading a:hover::before,
+.process-link-heading a:focus-visible::before {
+    opacity: 1;
+    transform: translateX(0);
+}
 
 .about-copy {
     grid-column: 2;
@@ -260,6 +376,60 @@ nav {
     font-size: clamp(1.08rem, 1.5vw, 1.35rem);
 }
 
+.services-intro {
+    align-self: start;
+    position: sticky;
+    top: 100px;
+}
+
+.services-lead {
+    max-width: 360px;
+    margin: 2rem 0 0;
+    font-size: clamp(1.08rem, 1.5vw, 1.35rem);
+    line-height: 1.45;
+}
+
+.service-list {
+    border-top: 1px solid rgba(1, 1, 1, .55);
+}
+
+.service-item {
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr) 2rem;
+    gap: 1.25rem;
+    align-items: start;
+    padding: 1.5rem 0 1.65rem;
+    border-bottom: 1px solid rgba(1, 1, 1, .55);
+    transition: background-color .2s ease, transform .2s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .service-item:hover {
+        background-color: rgba(232, 240, 233, .16);
+        transform: translateX(.35rem);
+    }
+}
+
+.service-number {
+    padding-top: .35rem;
+    font-size: .8rem;
+    font-weight: bold;
+    opacity: .62;
+}
+
+.service-details h3 {
+    margin: 0;
+    font-size: clamp(1.35rem, 2.3vw, 2.15rem);
+    line-height: 1.05;
+}
+
+.service-details p {
+    max-width: 520px;
+    margin: .65rem 0 0;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
 .process-copy {
     grid-column: 2;
     max-width: 560px;
@@ -271,7 +441,7 @@ nav {
 }
 
 
-/* ! someone add a descriptive comment for what this does */
+/* * styling for mobile devices and small screens */
 @media (max-width: 700px) {
     #welcome-div {
         flex-direction: column;
@@ -282,6 +452,29 @@ nav {
         min-width: 120px;
         width: 120px;
         margin: 0px;
+    }
+
+    .services-content {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+    }
+
+    .services-intro {
+        position: static;
+    }
+
+    .services-lead {
+        margin-top: 1.5rem;
+    }
+
+    .service-item {
+        grid-template-columns: 2rem minmax(0, 1fr) 1.25rem;
+        gap: .75rem;
+        padding: 1.25rem 0 1.4rem;
+    }
+
+    .service-details p {
+        font-size: .95rem;
     }
 }
 
@@ -308,22 +501,32 @@ nav {
 .right-area a {
     color: var(--tertiary-white);
     text-decoration: none;
-
     padding-right: 30px;
-
     font-size: 15px;
+    transition: color .2s ease;
+}
+.right-area a:hover {
+    color: var(--primary-purple);
 }
 
+/* navbar button hover effects */
 .right-area button {
     background-color: transparent;
     border: 1px solid rgb(150, 150, 150);
-
     display: inline-flex;
-
     padding: 10px;
     margin-right: 30px;
-
     text-align: center;
+    transition: background-color .2s ease, border-color .2s ease, transform .2s ease;
+}
+.right-area button:hover a {
+    color: var(--secondary-black);
+    text-decoration: none;
+    font-size: 15px;
+}
+.right-area button:hover {
+    border: 1px solid var(--primary-purple);
+    background-color: var(--primary-purple);
 }
 
 /* This is where the text lives */
@@ -341,4 +544,36 @@ nav {
     display: flex;
 
     text-align: left;
+}
+
+/* end-of-page book a call button */
+#goodbye-button {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 3rem;
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: var(--secondary-black);
+    border: 1px solid var(--secondary-black);
+    transition: background-color .2s ease, border-color .2s ease, transform .2s ease;
+}
+#goodbye-button:hover {
+    background-color: var(--primary-purple);
+    border: 1px solid var(--primary-purple);
+    transform: translateY(-4px);
+}
+#goodbye-button a {
+    text-align: center;
+    text-decoration: none;
+    font-family: baseFont;
+    color: var(--tertiary-white);
+}
+#goodbye-button:hover a {
+    color: var(--secondary-black);
+}
+#goodbye-button span {
+    margin-left: 10px;
 }
