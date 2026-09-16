@@ -1,0 +1,39 @@
+/* Page title */
+#title{
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/* Small text under title */
+#description{
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 40px;
+}
+
+
+#contact-card{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    gap: 24px;
+    background-color: #e5e5e5;
+    padding: 32px;
+    border-radius: 8px;
+    border: black 1px solid;
+}
+
+#info-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#label{
+
+}
+
+#value{
+
+}

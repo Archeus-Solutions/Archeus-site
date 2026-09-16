@@ -4,28 +4,42 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="contact.css">
         <title>Kontakt oss</title>
     </head>
     <body>
         <nav>
-            <div id="left-area">
-                <a href="index.html" id="navbar-logo">
+            <div class="left-area">
+                <a href="index.html" class="navbar-logo">
                     <img class="logo" src="assets/svgs/archeus-icon.svg" alt="archeus-logo">
                     <h1>archeus</h1>
                 </a>
             </div>
-            <div id="right-area">
+            <div class="right-area">
+                <a href="services.html">Tjenester</a>
                 <a href="contact.html">Kontakt oss</a>
-                <a href="">Om oss</a>
-                <button id="navbar-book">
-                    <a href="">Book et møte</a>
+                <a href="about.html">Om oss</a>
+                <button class="navbar-book">
+                    <a href="contact.html">Book et møte<span aria-hidden="true">↗</span></a>
                 </button>
             </div>
         </nav>
 
-        <div class="site-content">
-            <h1>Contact oss</h1> 
-            <p>[ e-mail, sms, etc... ]</p>
+        <h1 id="title">Kontakt info</h1>
+        <p id="description">Har du et problem? Kontakt oss!</p>
+        
+        <div id="contact-card">
+            <!-- Row 1: E-post -->
+            <div id="info-row">
+              <h1 id="label">E-post</h1>
+              <p id="value">post@archeus.solutions</p>
+            </div>
+          
+            <!-- Row 2: Telefon -->
+            <div id="info-row">
+              <h1 id="label">Telefon</h1>
+              <p id="value">41 28 72 34</p>
+            </div>
         </div>
     </body>
 </html>
