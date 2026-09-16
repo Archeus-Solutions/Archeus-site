@@ -25,7 +25,7 @@
 body {
     padding: 0px;
     margin: 0px;
-    background-color: #f3efe7;
+    background-color: var(--tertiary-white);
     color: var(--text-color);
 
     font-family: baseFont;
@@ -89,6 +89,7 @@ nav {
     background-color: var(--tertiary-white);
     color: var(--text-color);
     padding: clamp(5rem,10vw,10rem);
+    border-bottom: 1px solid color-mix(in srgb, var(--secondary-black) 22%, transparent);
 }
 
 .section-content {
@@ -103,8 +104,13 @@ nav {
     margin-top: 0px;
 }
 
-.welcome-text p {
+.welcome-text,
+#welcome-text {
     font-size: clamp(40px, 10vw, 140px);
+}
+
+.welcome-text p {
+    font-size: 1em;
     line-height: 1.2;
     font-weight: bold;
     margin: 0;
@@ -123,7 +129,7 @@ nav {
     gap: 200px;
 
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     text-align: left;
 }
 #smallText {
@@ -216,8 +222,7 @@ nav {
 }
 
 #landing-logo {
-    min-width: 150px;
-    max-width: 350px;
+    width: clamp(72px, 12vw, 300px);
     margin: 0px 120px 0px 0px;
 }
 
@@ -449,8 +454,6 @@ nav {
     }
 
     #landing-logo {
-        min-width: 120px;
-        width: 120px;
         margin: 0px;
     }
 
@@ -576,4 +579,21 @@ nav {
 }
 #goodbye-button span {
     margin-left: 10px;
+}
+
+.footer-content {
+    width: 92%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.footer-left img {
+    height: 2rem;
 }
