@@ -12,22 +12,30 @@
     margin-bottom: 40px;
 }
 
-
-#contact-card{
+.content-wrapper{
     display: flex;
     justify-content: center;
-    margin: auto;
-    gap: 24px;
-    background-color: #e5e5e5;
-    padding: 32px;
-    border-radius: 8px;
-    border: black 1px solid;
+    align-items: center;
+    margin-top: 6rem;
 }
 
-#info-row{
+#contact-card{
+    background-color: #e5e5e5;
+    padding: 32px;
+    padding-left: 300px;
+    padding-right: 300px;
+    border: var(--secondary-black) 1px solid;
+}
+
+.info-row{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+#contact-card-header {
+    text-align: center;
+    font-size: 1.3em;
 }
 
 #label{
