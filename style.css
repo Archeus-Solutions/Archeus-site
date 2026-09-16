@@ -479,6 +479,82 @@ nav {
     .service-details p {
         font-size: .95rem;
     }
+
+    /* navbar: allow wrapping and smaller paddings on narrow screens */
+    nav {
+        padding: 8px 12px;
+    }
+
+    .navbar-logo {
+        margin-left: 10px;
+        gap: 8px;
+    }
+
+    .right-area {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .right-area a {
+        padding-right: 12px;
+        font-size: 14px;
+    }
+
+    .right-area button {
+        margin-right: 10px;
+        padding: 8px;
+    }
+
+    /* About & process: switch to single column and prevent overflow */
+    .about-content,
+    .process-content {
+        display: block;
+        grid-template-columns: none;
+        gap: 1.5rem;
+        max-width: 100%;
+        padding: 0 2rem;
+    }
+
+    .about-copy,
+    .process-copy {
+        grid-column: auto;
+        max-width: 100%;
+    }
+
+    /* make sure headings and paragraphs break instead of overflowing */
+    .about-content h2,
+    .process-content h2,
+    .process-content h3,
+    .services-content h2,
+    .tagline-content h2 {
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .about-copy p,
+    .process-copy p,
+    .service-details p,
+    .services-lead,
+    #smallText {
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+
+    /* footer: stack on mobile and scale image responsively */
+    .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .footer-left img {
+        max-width: 48px;
+        height: auto;
+        width: auto;
+    }
 }
 
 /* * uses negative margin to cancel out padding from inherited */
@@ -595,5 +671,8 @@ nav {
     gap: 10px;
 }
 .footer-left img {
-    height: 2rem;
+    max-height: 2rem;
+    height: auto;
+    width: auto;
+    max-width: 100%;
 }
