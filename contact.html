@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="contact.css">
-        <title>Kontakt oss</title>
+        <title>Archeus | Kontakt oss</title>
     </head>
     <body>
         <nav>
@@ -24,25 +24,68 @@
                 </button>
             </div>
         </nav>
-        <div class="content-wrapper">
 
-            <div id="contact-card">
-                <div id="contact-card-header">
-                    <h1>Kontakt oss</h1>
+        <div class="content-wrapper">
+            <!-- E-post boksen -->
+            <div id="crm-card">
+                <div id="crm-card-header">
+                    <h1>Send oss en e-post</h1>
+                    <p class="crm-card-description">Fyll ut skjemaet under, så svarer vi deg vanligvis innen 24 timer.</p>
                 </div>
-                <!-- Row 1: E-post -->
-                <div class="info-row">
-                    <h1 id="label">E-post</h1>
-                    <p id="value">post@archeus.solutions</p>
-                </div>
-            
-                <!-- Row 2: Telefon -->
-                <div class="info-row">
-                    <h1 id="label">Telefon</h1>
-                    <p id="value">41 28 72 34</p>
-                </div>
+
+                <form action="#" method="POST" id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Navn *</label>
+                        <input type="text" id="name" name="name" required placeholder="Ditt navn">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-post *</label>
+                        <input type="email" id="email" name="email" required placeholder="din.epost@adresse.no">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="company">Selskap (valgfritt)</label>
+                        <input type="text" id="company" name="company" placeholder="Selskapsnavn">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Melding *</label>
+                        <textarea id="message" name="message" required placeholder="Hva kan vi hjelpe deg med?"></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <span>Send e-post</span>
+                        <span aria-hidden="true">→</span>
+                    </button>
+                </form> 
             </div>
 
+            <!-- Informasjonskortet -->
+            <div id="contact-card">
+                <div id="contact-card-header">
+                    <h1>Kontaktinformasjon</h1>
+                </div>
+                
+                <!-- Row 1: E-post -->
+                <div class="info-row">
+                    <p class="label">E-post</p>
+                    <p class="value"><a href="mailto:post@archeus.solutions">post@archeus.solutions</a></p>
+                </div>
+
+                <!-- Row 2: Telefon -->
+                <div class="info-row">
+                    <p class="label">Telefon</p>
+                    <p class="value"><a href="tel:+4741287234">41 28 72 34</a></p>
+                </div>
+
+                <!-- Row 3: Arbeidstider -->
+                <div class="info-row">
+                    <p class="label">Arbeidstider</p>
+                    <p class="value">09:00 - 17:00</p>
+                </div>
+            </div>
         </div>
+        
     </body>
 </html>
