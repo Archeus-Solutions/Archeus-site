@@ -22,8 +22,8 @@
                 <a href="services.html">Tjenester</a>
                 <a href="dashboard.html">Dashboard</a>
                 <a href="about.html">Om oss</a>
-                <button class="navbar-book">
-                    <a href="contact.html">Book et møte<span aria-hidden="true">↗</span></a>
+                <button class="navbar-book" onclick="gotoPage('contact.html')">
+                    <p href="contact.html">Book et møte<span aria-hidden="true">↗</span></p>
                 </button>
             </div>
         </nav>
@@ -39,8 +39,8 @@
                         <p id="blue">inntrykk</p>
                         <p>på nettet.</p>
                         <p id="smallText">Vi legger det digitale grunnlaget som ambisiøse bedrifter trenger for å bli lagt merke til, vinne tillit og være klare for det som kommer.</p>
-                        <button id="welcome-button">
-                            <a href="contact.html">Book et møte<span aria-hidden="true">↗</span></a>
+                        <button id="welcome-button" onclick="gotoPage('contact.html')">
+                            <p >Book et møte<span aria-hidden="true">↗</span></p>
                         </button>
                     </div>
                     <img id="landing-logo" src="assets/svgs/archeus-icon.svg" alt="logo">
@@ -105,8 +105,8 @@
                         </article>
                     </div>
                 </div>
-                <button id="services-button">
-                    <a href="services.html">Se alle tjenestene våre<span aria-hidden="true">↗</span></a>
+                <button id="services-button" onclick="gotoPage('services.html')">
+                    <p>Se alle tjenestene våre<span aria-hidden="true">↗</span></p>
                 </button>
             </section>
 
@@ -145,8 +145,8 @@
                 <div class="section-content tagline-content">
                     <h2>Ditt neste kapittel begynner </h2>
                     <h2 id="blue">her.</h2>
-                    <button id="goodbye-button">
-                        <a href="">Book et møte<span aria-hidden="true">↗</span></a>
+                    <button id="goodbye-button" onclick="gotoPage('contact.html')">
+                        <a>Book et møte<span aria-hidden="true">↗</span></a>
                     </button>
                 </div>
             </section>
@@ -162,5 +162,7 @@
                 </div>
             </footer>
         </main>
+
+        <script src="script.js"></script>
     </body>
 </html>
