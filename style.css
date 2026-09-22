@@ -172,7 +172,7 @@ nav {
 #services-button {
     display: block;
     margin: 60px auto 0;
-    padding: 15px 30px;
+    padding: 10px 30px;
     font-size: 1rem;
     font-weight: bold;
     background-color: var(--secondary-black);
@@ -567,8 +567,8 @@ nav {
     height: 100%;
     text-align: center;
     text-decoration: none;
-    /* margin-right: -30px; */
     font-family: baseFont;
+    font-size: 15px;
 }
 
 /* navbar stuff */
@@ -601,10 +601,9 @@ nav {
     text-align: center;
     transition: background-color .2s ease, border-color .2s ease, transform .2s ease;
 }
-.right-area button:hover a {
+.right-area button:hover p {
     color: var(--secondary-black);
     text-decoration: none;
-    font-size: 15px;
 }
 .right-area button:hover {
     border: 1px solid var(--primary-purple);
