@@ -3,9 +3,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Archeus | Kontakt oss</title>
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="contact.css">
-        <title>Archeus | Kontakt oss</title>
     </head>
     <body>
         <nav>
@@ -30,10 +30,13 @@
             <div id="crm-card">
                 <div id="crm-card-header">
                     <h1>Send oss en forespørsel</h1>
-                    <p class="crm-card-description">Fyll ut skjemaet under, så svarer vi deg vanligvis innen 24 timer.</p>
+                    <p class="crm-card-description">Fyll ut skjemaet under, så svarer vi deg så fort vi kan.</p>
                 </div>
 
-                <form action="#" method="POST" id="contact-form">
+                <form action="https://api.staticforms.dev/submit" method="POST" id="contact-form">
+                    <input type="hidden" name="apiKey" value="sf_447a76f338736ace150c388b">
+                    <input type="hidden" name="redirectTo" value="https://archeus.solutions/index.html">
+                    
                     <div class="form-group">
                         <label for="name">Navn *</label>
                         <input type="text" id="name" name="name" required placeholder="Ditt navn">
@@ -45,8 +48,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="company">Selskap (valgfritt)</label>
-                        <input type="text" id="company" name="company" placeholder="Selskapsnavn">
+                        <label for="company">Selskap *</label>
+                        <input type="text" id="company" name="company" required placeholder="Selskapsnavn">
                     </div>
 
                     <div class="form-group">
