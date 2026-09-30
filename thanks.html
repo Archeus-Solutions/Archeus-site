@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archeus | Thank you</title>
+    <link rel="stylesheet" href="thanks.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <nav>
+        <div class="left-area">
+            <a href="index.html" class="navbar-logo">
+                <img class="logo" src="assets/svgs/archeus-icon.svg" alt="archeus-logo">
+                <h1>archeus</h1>
+            </a>
+        </div>
+        <div class="right-area">
+            <a href="services.html">Tjenester</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="about.html">Om oss</a>
+            <button class="navbar-book" onclick="gotoPage('contact.html')">
+                <p href="contact.html">Book et møte<span aria-hidden="true">↗</span></p>
+            </button>
+        </div>
+    </nav>
+
+    <div id="content-wrapper">
+        <div id="thanks-card">
+            <div id="thanks-card-header">
+                <h1>Takk for at du tar kontakt!</h1>
+                <p id="thanks-card-description">Vi svarer deg så fort vi kan.</p>
+            </div>
+            <button id="return-btn" onclick="gotoPage('index.html')">
+                <p href="index.html">Tilbake<span aria-hidden="true">↗</span></p>
+            </button>
+        </div>
+    </div>
+   
+    <script src="script.js"></script>
+</body>
+</html>
