@@ -1,27 +1,220 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <nav>
-        <div class="left-area">
-            <a href="index.html" class="navbar-logo">
-                <img class="logo" src="assets/svgs/archeus-icon.svg" alt="archeus-logo">
-                <h1>archeus</h1>
-            </a>
-        </div>
-        <div class="right-area">
-            <a href="services.html">Tjenester</a>
-            <a href="dashboard.html">Dashboard</a>
-            <a href="about.html">Om oss</a>
-            <button class="navbar-book" onclick="gotoPage('contact.html')">
-                <p href="contact.html">Book et møte<span aria-hidden="true">↗</span></p>
-            </button>
-        </div>
-    </nav>
-    <!-- TODO: I will complete this page later, too tired -->
-</body>
+<html lang="no">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Archeus | Tjenester</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="services.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon_io/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png">
+        <link rel="manifest" href="assets/favicon_io/site.webmanifest">
+    </head>
+    <body>
+        <nav>
+            <div class="left-area">
+                <a href="index.html" class="navbar-logo">
+                    <img class="logo" src="assets/svgs/archeus-icon.svg" alt="archeus-logo">
+                    <h1>archeus</h1>
+                </a>
+            </div>
+            <div class="right-area">
+                <a href="services.html" aria-current="page">Tjenester</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="about.html">Om oss</a>
+                <button class="navbar-book" onclick="gotoPage('contact.html')">
+                    <p href="contact.html">Book et møte<span aria-hidden="true">↗</span></p>
+                </button>
+            </div>
+        </nav>
+
+        <main>
+            <!-- headline across the full width, lead + in-page links underneath -->
+            <section id="top" class="page-section page-section--dark">
+                <div class="section-content pricing-hero">
+                    <h1>Tydelige priser,<br>ingen <span id="blue">liten skrift.</span></h1>
+                    <div class="pricing-hero-bottom">
+                        <p class="pricing-hero-lead">Hos oss vet du hva du betaler for før vi setter i gang. Velg pakken som passer der bedriften din er i dag, og legg til resten først når du trenger det.</p>
+                        <ul class="pricing-toc" aria-label="På denne siden">
+                            <li><a href="#priser">Pakker og priser<span aria-hidden="true">↓</span></a></li>
+                            <li><a href="#prosjekter">Større prosjekter<span aria-hidden="true">↓</span></a></li>
+                            <li><a href="#sporsmal">Godt å vite<span aria-hidden="true">↓</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- * price sheet; one table comparing both packs instead of separate "product cards"
+                 * rows are services, columns are packs. values marked .is-included get a dot -->
+            <section id="priser" class="page-section page-section--pricing">
+                <div class="section-content pricing-content">
+                    <div class="pricing-intro">
+                        <h2 id="priser-tittel">Hva det koster.</h2>
+                        <p>Begge pakkene gir deg en ferdig nettside og sosiale medier som er satt opp for deg. Startpakken for ungdomsbedrifter har lavere priser og mer inkludert, mens bedriftspakken holder startprisen nede og lar deg velge resten selv.</p>
+                    </div>
+
+                    <table class="price-sheet" aria-labelledby="priser-tittel">
+                        <thead>
+                            <tr>
+                                <td class="price-key">
+                                    <p>Alle priser er i norske kroner.</p>
+                                    <p class="is-included">Inkludert i pakken</p>
+                                    <p class="is-addon">Valgfritt tillegg</p>
+                                </td>
+                                <th scope="col" class="pack-head">
+                                    <span class="pack-audience">For ungdomsbedrifter</span>
+                                    <span class="pack-name">Startpakke UB</span>
+                                    <span class="pack-price">400 kr</span>
+                                    <span class="pack-note">Engangspris</span>
+                                </th>
+                                <th scope="col" class="pack-head">
+                                    <span class="pack-audience">For bedrifter</span>
+                                    <span class="pack-name">Bedriftspakke</span>
+                                    <span class="pack-price">600 kr</span>
+                                    <span class="pack-note">Engangspris + tilleggene du velger</span>
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr class="price-group">
+                                <th scope="colgroup" colspan="3">Alltid inkludert</th>
+                            </tr>
+                            <tr class="price-row">
+                                <th scope="row">
+                                    <span class="price-service">Nettside</span>
+                                    <span class="price-description">Designet og utviklet for bedriften din, og tilpasset både mobil og PC.</span>
+                                </th>
+                                <td class="is-included" data-pack="Startpakke UB">Inkludert</td>
+                                <td class="is-included" data-pack="Bedriftspakke">Inkludert</td>
+                            </tr>
+                            <tr class="price-row">
+                                <th scope="row">
+                                    <span class="price-service">SoMe-oppsett</span>
+                                    <span class="price-description">Profilene dine på sosiale medier, satt opp med et uttrykk som henger sammen med nettsiden.</span>
+                                </th>
+                                <td class="is-included" data-pack="Startpakke UB">Inkludert</td>
+                                <td class="is-included" data-pack="Bedriftspakke">Inkludert</td>
+                            </tr>
+                        </tbody>
+
+                        <tbody>
+                            <tr class="price-group">
+                                <th scope="colgroup" colspan="3">Tillegg</th>
+                            </tr>
+                            <tr class="price-row">
+                                <th scope="row">
+                                    <span class="price-service">Hosting</span>
+                                    <span class="price-description">Stabil drift av nettsiden din, så du slipper å tenke på den tekniske biten.</span>
+                                </th>
+                                <td class="is-included" data-pack="Startpakke UB">Gratis</td>
+                                <td class="is-addon" data-pack="Bedriftspakke">39 kr/mnd</td>
+                            </tr>
+                            <tr class="price-row">
+                                <th scope="row">
+                                    <span class="price-service">Logo</span>
+                                    <span class="price-description">En egen logo som gjør bedriften din lett å kjenne igjen.</span>
+                                </th>
+                                <td class="is-addon" data-pack="Startpakke UB">49 kr</td>
+                                <td class="is-addon" data-pack="Bedriftspakke">99 kr</td>
+                            </tr>
+                            <tr class="price-row">
+                                <th scope="row">
+                                    <span class="price-service">Reklame og markedsføring</span>
+                                    <span class="price-description">Hjelp til å nå ut, med annonser og innhold som gjør at folk legger merke til deg.</span>
+                                </th>
+                                <td class="is-addon" data-pack="Startpakke UB">249 kr</td>
+                                <td class="is-addon" data-pack="Bedriftspakke">249 kr</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- larger projects that fall outside the packs; priced per project -->
+            <section id="prosjekter" class="page-section page-section--services">
+                <div class="section-content projects-content">
+                    <div class="projects-intro">
+                        <h2>Når du trenger mer.</h2>
+                        <p>Pakkene er laget for å få deg i gang. Har du større planer, lager vi et tilbud ut fra hva prosjektet faktisk krever, slik at du bare betaler for det du får.</p>
+                    </div>
+                    <div class="projects-list">
+                        <article class="project-item">
+                            <h3>Nettbutikk</h3>
+                            <p>Vil du selge på nett? Vi bygger nettbutikker som er enkle for deg å drive og trygge for kundene dine å handle i.</p>
+                            <p class="project-price">Pris etter avtale</p>
+                        </article>
+                        <article class="project-item">
+                            <h3>Skreddersydd programvare</h3>
+                            <p>Digitale verktøy bygget rundt måten virksomheten din faktisk jobber på, i stedet for omvendt.</p>
+                            <p class="project-price">Pris etter avtale</p>
+                        </article>
+                        <article class="project-item">
+                            <h3>Promomateriell</h3>
+                            <p>Fysiske og digitale flater som gir kampanjer, lanseringer og hverdagen mer kraft.</p>
+                            <p class="project-price">Pris etter avtale</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ; uses native details/summary so it works without JavaScript -->
+            <section id="sporsmal" class="page-section page-section--dark">
+                <div class="section-content faq-content">
+                    <div class="faq-intro">
+                        <h2>Godt å vite.</h2>
+                        <p>Finner du ikke svaret du leter etter? <a href="contact.html">Send oss en melding</a>, så hjelper vi deg.</p>
+                    </div>
+                    <div class="faq-list">
+                        <details class="faq-item">
+                            <summary>Hva er en ungdomsbedrift?</summary>
+                            <p>En ungdomsbedrift (UB) er en bedrift som elever i videregående skole starter og driver gjennom et skoleår, ofte i regi av Ungt Entreprenørskap. Startpakke UB er laget for nettopp dere, med lavere priser og mer inkludert.</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>Hvorfor er ikke hosting inkludert i bedriftspakken?</summary>
+                            <p>Fordi ikke alle trenger det. Har du allerede et sted å ha nettsiden, skal du ikke måtte betale for det to ganger. Vil du at vi tar oss av driften, legger du til hosting for 39 kr i måneden.</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>Hva betyr SoMe-oppsett?</summary>
+                            <p>Vi oppretter og setter opp bedriftens profiler på sosiale medier, med profilbilde, beskrivelse og et uttrykk som passer sammen med nettsiden. Du får dem ferdige og klare til bruk.</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>Betaler jeg pakkeprisen bare én gang?</summary>
+                            <p>Ja. Pakkeprisen og tillegg som logo og markedsføring betales én gang. Det eneste som koster noe hver måned er hosting, hvis du velger det i bedriftspakken.</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>Kan jeg legge til tillegg senere?</summary>
+                            <p>Ja. Du trenger ikke bestemme alt med en gang. Ta kontakt når du er klar, så legger vi til det du trenger.</p>
+                        </details>
+                    </div>
+                </div>
+            </section>
+
+            <!-- closing call to action -->
+            <section class="page-section page-section--tagline">
+                <div class="section-content cta-content">
+                    <h2>Usikker på hva du trenger?</h2>
+                    <div class="cta-copy">
+                        <p>Ta en prat med oss, så finner vi ut hva som passer bedriften din. Det viktigste for oss er at du føler deg hørt.</p>
+                        <button id="goodbye-button" onclick="gotoPage('contact.html')">
+                            <a>Book et møte<span aria-hidden="true">↗</span></a>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <div class="footer-content">
+                    <div class="footer-left">
+                        <img src="assets/svgs/archeus-icon-dark-img.png" alt="archeus-logo">
+                        <h1>archeus</h1>
+                    </div>
+                    <p>&copy; 2026 Archeus. Alle rettigheter reservert.</p>
+                </div>
+            </footer>
+        </main>
+
+        <script src="script.js"></script>
+    </body>
 </html>
