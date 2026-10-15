@@ -17,6 +17,13 @@
     color: var(--secondary-black);
 }
 
+/* smooth scrolling for in-page links on every page */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
 @font-face {
     font-family: baseFont;
     src: url(assets/BricolageGrotesqueFont/BricolageGrotesque.ttf);
@@ -60,7 +67,42 @@ nav {
 .page-section--dark {
     background-color: var(--secondary-black);
     color: var(--tertiary-white);
-    padding: 100px 0px 160px;
+    padding: 100px 0px 100px;
+}
+
+/* first section fills the rest of the screen under the navbar, so no white gap shows on tall screens.
+   3rem is a bit less than the navbar's height, so it runs slightly past the fold instead of leaving a gap */
+#top {
+    min-height: calc(100vh - 3rem);
+    min-height: calc(100svh - 3rem);
+    position: relative;
+}
+
+/* "scroll for more" link, sits centered in the bottom padding of #top */
+.scroll-hint {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .25rem;
+
+    color: var(--tertiary-white);
+    text-decoration: none;
+    font-size: .9rem;
+    opacity: .6;
+    transition: opacity .2s;
+}
+
+.scroll-hint:hover {
+    opacity: 1;
+}
+
+.scroll-hint span {
+    font-size: 1.25rem;
 }
 
 .page-section--about {

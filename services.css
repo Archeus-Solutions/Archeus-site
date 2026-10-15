@@ -5,12 +5,6 @@ html {
     scroll-padding-top: 4rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    html {
-        scroll-behavior: smooth;
-    }
-}
-
 /* marks the current page in the navbar */
 .right-area a[aria-current="page"] {
     color: var(--primary-purple);
