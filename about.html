@@ -26,23 +26,101 @@
     </nav>
   
 
-    <section id="about-container">
+    <section id="top">
         <div id="title">
-            <h1>Om Archeus</h1>
-            <p>Her kan det stå maaaaaaaaaassssssseeeeeeeeee om hvem vi er og andre kule ting. Altså en liten description. :D</p>
+            <h1>Bruk tid<br>på det som<br><span id="blue">betyr noe.</span></h1>
+            <p>Vi hjelper alle bedrifter uavhengig av virksomheten.</p>
         </div>
-        <div id="info-container">
-            <div class="service-card">
+        <div id="top-container">
+            <div class="top-card">
                 <h2>Hva vi tilbyr</h2>
                 <p>Vi gir bedrifter et profesjonelt uteseende på nett. Tjenstene våre inkluderer:</p>
                 <ul>
                     <li><p>Hosting</p></li>
-                    <li><p>Nettsider</p></li>
+                    <li><p>Nettside</p></li>
+                    <li><p>Logo & design</p></li>
+                    <li><p>Markedsføring</p></li>                    
                 </ul>
+                <button id="service-button" onclick="gotoPage('services.html')">
+                    <p>Se våre tjenester<span aria-hidden="true">↗</span></p>
+                </button>
             </div>
-            <div class="service-card">
-                <h2>Våre verdier</h2>
+            <div class="top-card">
+                <h2>Gode løsninger starter med gode samarbeid.</h2>
                 <p>Vi prioriterer tett samarbeid og kommunikasjon for å sikre at din bedrift får akkurat det den trenger.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="main">
+        <div id="main-container">
+            <div id="main-title">
+                <h1>Et samarbeid uten unødvendige omveier.</h1>
+            </div>
+            <div id="main-card-container">
+                <div id="main-card">
+                    <h2>Tydelig fra start.</h2>
+                    <p>Forventninger, omfang og pris avklares før arbeidet begynner.</p>
+                </div>
+                <div id="main-card">
+                    <h2>Tilpasset virkeligheten.</h2>
+                    <p>Løsningen skal passe bedriftens situasjon og ambisjoner, ikke bare se bra ut på papiret.</p>
+                </div>
+                <div id="main-card">
+                    <h2>Bygget for veien videre.</h2>
+                    <p>Vi ønsker å levere noe du kan bruke, utvikle og bygge videre på etter at prosjektet er ferdig.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team">
+        <div id="team-container">
+            <div class="team-row">
+                <h2>Vårt samarbeid</h2>
+                <p>
+                    Vi tror de beste resultatene skapes gjennom god kommunikasjon,
+                    åpenhet og en felles forståelse av målet. Derfor legger vi vekt
+                    på å lytte til kundene våre, forstå behovene deres og finne
+                    løsninger sammen. For oss handler et godt samarbeid om at du
+                    skal føle deg involvert og trygg gjennom hele prosessen.
+                </p>
+            </div>
+            <div class="team-row reverse">
+                <h2>Vårt team</h2>
+                <p>
+                    Archeus består av mennesker med interesse for teknologi,
+                    design og entreprenørskap. Vi har ulike perspektiver og
+                    ferdigheter som utfyller hverandre, og bruker dem til å
+                    utvikle gjennomtenkte løsninger. Vi er nysgjerrige,
+                    lærevillige og opptatt av å stadig bli bedre på det vi gjør.
+                </p>
+            </div>
+            <div class="team-row">
+                <h2>Vår ambisjon</h2>
+                <p>
+                    Vi ønsker å gjøre digitale løsninger mer tilgjengelige for
+                    bedrifter med store planer, uansett hvor de befinner seg i dag.
+                    Ved å kombinere kreativitet med praktisk problemløsning vil vi
+                    hjelpe kundene våre med å ta neste steg og bygge et solid
+                    grunnlag for videre utvikling.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="end">
+        <div id="end-container">
+            <div id="end-card">
+                <div class="end-left">
+                    <h1>La oss finne ut hva du trenger.</h1>
+                </div>
+                <div class="end-right">
+                    <p>Du trenger ikke ha alle svarene klare før du tar kontakt.<br>Fortell oss hvor du vil, så finner vi ut om vi er en god match.</p>
+                    <button id="team-button" onclick="gotoPage('contact.html')">
+                        <a>Ta en prat med oss<span aria-hidden="true">↗</span></a>
+                    </button>
+                </div>
             </div>
         </div>
     </section>
