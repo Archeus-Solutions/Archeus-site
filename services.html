@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Hos oss vet du hva du betaler for før vi setter i gang. Velg pakken som passer der bedriften din er i dag, og legg til resten først når du trenger det.">
         <title>Archeus | Tjenester</title>
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="services.css">
@@ -10,6 +11,19 @@
         <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png">
         <link rel="manifest" href="assets/favicon_io/site.webmanifest">
+        <!-- canonical + social previews. switch these to pretty URLs once the host serves them -->
+        <link rel="canonical" href="https://archeus.solutions/services.html">
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="Archeus">
+        <meta property="og:locale" content="nb_NO">
+        <meta property="og:url" content="https://archeus.solutions/services.html">
+        <meta property="og:title" content="Archeus | Tjenester">
+        <meta property="og:description" content="Hos oss vet du hva du betaler for før vi setter i gang. Velg pakken som passer der bedriften din er i dag, og legg til resten først når du trenger det.">
+        <meta property="og:image" content="https://archeus.solutions/assets/og-image.png">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:image:alt" content="Archeus: Forfrem ditt inntrykk på nettet.">
+        <meta name="twitter:card" content="summary_large_image">
     </head>
     <body>
         <nav>
@@ -32,11 +46,11 @@
         <main>
             <!-- headline across the full width, lead + in-page links underneath -->
             <section id="top" class="page-section page-section--dark">
-                <div class="section-content pricing-hero">
+                <div class="section-content page-hero">
                     <h1>Tydelige priser,<br>ingen <span id="blue">liten skrift.</span></h1>
-                    <div class="pricing-hero-bottom">
-                        <p class="pricing-hero-lead">Hos oss vet du hva du betaler for før vi setter i gang. Velg pakken som passer der bedriften din er i dag, og legg til resten først når du trenger det.</p>
-                        <ul class="pricing-toc" aria-label="På denne siden">
+                    <div class="page-hero-bottom">
+                        <p class="page-hero-lead">Hos oss vet du hva du betaler for før vi setter i gang. Velg pakken som passer der bedriften din er i dag, og legg til resten først når du trenger det.</p>
+                        <ul class="page-links" aria-label="På denne siden">
                             <li><a href="#priser">Pakker og priser<span aria-hidden="true">↓</span></a></li>
                             <li><a href="#prosjekter">Større prosjekter<span aria-hidden="true">↓</span></a></li>
                             <li><a href="#sporsmal">Godt å vite<span aria-hidden="true">↓</span></a></li>
@@ -48,9 +62,9 @@
 
             <!-- * price sheet; one table comparing both packs instead of separate "product cards"
                  * rows are services, columns are packs. values marked .is-included get a dot -->
-            <section id="priser" class="page-section page-section--pricing">
+            <section id="priser" class="page-section page-section--light">
                 <div class="section-content pricing-content">
-                    <div class="pricing-intro">
+                    <div class="section-intro pricing-intro">
                         <h2 id="priser-tittel">Hva det koster.</h2>
                         <p>Begge pakkene gir deg en ferdig nettside og sosiale medier som er satt opp for deg. Startpakken for ungdomsbedrifter har lavere priser og mer inkludert, mens bedriftspakken holder startprisen nede og lar deg velge resten selv.</p>
                     </div>
@@ -64,13 +78,13 @@
                                     <p class="is-addon">Valgfritt tillegg</p>
                                 </td>
                                 <th scope="col" class="pack-head">
-                                    <span class="pack-audience">For ungdomsbedrifter</span>
+                                    <span class="pack-audience">for ungdomsbedrifter</span>
                                     <span class="pack-name">Startpakke UB</span>
                                     <span class="pack-price">400 kr</span>
                                     <span class="pack-note">Engangspris</span>
                                 </th>
                                 <th scope="col" class="pack-head">
-                                    <span class="pack-audience">For bedrifter</span>
+                                    <span class="pack-audience">for bedrifter</span>
                                     <span class="pack-name">Bedriftspakke</span>
                                     <span class="pack-price">600 kr</span>
                                     <span class="pack-note">Engangspris + tilleggene du velger</span>
@@ -80,7 +94,7 @@
 
                         <tbody>
                             <tr class="price-group">
-                                <th scope="colgroup" colspan="3">Alltid inkludert</th>
+                                <th scope="colgroup" colspan="3">ALLTID INKLUDERT</th>
                             </tr>
                             <tr class="price-row">
                                 <th scope="row">
@@ -102,7 +116,7 @@
 
                         <tbody>
                             <tr class="price-group">
-                                <th scope="colgroup" colspan="3">Tillegg</th>
+                                <th scope="colgroup" colspan="3">TILLEGG</th>
                             </tr>
                             <tr class="price-row">
                                 <th scope="row">
@@ -134,27 +148,27 @@
             </section>
 
             <!-- larger projects that fall outside the packs; priced per project -->
-            <section id="prosjekter" class="page-section page-section--services">
+            <section id="prosjekter" class="page-section page-section--accent">
                 <div class="section-content projects-content">
-                    <div class="projects-intro">
+                    <div class="section-intro">
                         <h2>Når du trenger mer.</h2>
                         <p>Pakkene er laget for å få deg i gang. Har du større planer, lager vi et tilbud ut fra hva prosjektet faktisk krever, slik at du bare betaler for det du får.</p>
                     </div>
-                    <div class="projects-list">
-                        <article class="project-item">
+                    <div class="column-list">
+                        <article class="column-item">
                             <h3>Nettbutikk</h3>
                             <p>Vil du selge på nett? Vi bygger nettbutikker som er enkle for deg å drive og trygge for kundene dine å handle i.</p>
-                            <p class="project-price">Pris etter avtale</p>
+                            <p class="project-price">pris etter avtale</p>
                         </article>
-                        <article class="project-item">
+                        <article class="column-item">
                             <h3>Skreddersydd programvare</h3>
                             <p>Digitale verktøy bygget rundt måten virksomheten din faktisk jobber på, i stedet for omvendt.</p>
-                            <p class="project-price">Pris etter avtale</p>
+                            <p class="project-price">pris etter avtale</p>
                         </article>
-                        <article class="project-item">
+                        <article class="column-item">
                             <h3>Promomateriell</h3>
                             <p>Fysiske og digitale flater som gir kampanjer, lanseringer og hverdagen mer kraft.</p>
-                            <p class="project-price">Pris etter avtale</p>
+                            <p class="project-price">pris etter avtale</p>
                         </article>
                     </div>
                 </div>
@@ -163,7 +177,7 @@
             <!-- FAQ; uses native details/summary so it works without JavaScript -->
             <section id="sporsmal" class="page-section page-section--dark">
                 <div class="section-content faq-content">
-                    <div class="faq-intro">
+                    <div class="section-intro faq-intro">
                         <h2>Godt å vite.</h2>
                         <p>Finner du ikke svaret du leter etter? <a href="contact.html">Send oss en melding</a>, så hjelper vi deg.</p>
                     </div>
@@ -188,12 +202,19 @@
                             <summary>Kan jeg legge til tillegg senere?</summary>
                             <p>Ja. Du trenger ikke bestemme alt med en gang. Ta kontakt når du er klar, så legger vi til det du trenger.</p>
                         </details>
+                        <details class="faq-item">
+                            <summary>Hvordan jobber dere?</summary>
+                            <p>Vi tar deg gjennom fire enkle steg, fra første melding til ferdig første versjon, og du er med på hvert av dem. Vil du vite mer, kan du se hele prosessen vår.</p>
+                            <button id="faq-button" onclick="gotoPage('process.html')">
+                                <p>Se prosessen vår<span aria-hidden="true">↗</span></p>
+                            </button>
+                        </details>
                     </div>
                 </div>
             </section>
 
             <!-- closing call to action -->
-            <section class="page-section page-section--tagline">
+            <section class="page-section page-section--light">
                 <div class="section-content cta-content">
                     <h2>Usikker på hva du trenger?</h2>
                     <div class="cta-copy">

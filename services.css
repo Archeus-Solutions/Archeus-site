@@ -1,115 +1,11 @@
 /* * styling specific to services.html, everything shared lives in style.css */
 
-/* keeps headings clear of the sticky navbar when jumping to a section */
-html {
-    scroll-padding-top: 4rem;
-}
-
-/* marks the current page in the navbar */
-.right-area a[aria-current="page"] {
-    color: var(--primary-purple);
-}
-
-
-/* * section bands. --services and --tagline are reused from style.css,
-   * their side padding is removed here so every band lines up at the same width */
-.page-section--pricing {
-    background-color: var(--tertiary-white);
-    color: var(--text-color);
-    padding: clamp(5rem, 10vw, 10rem) 0;
-}
-
-.page-section--services,
-.page-section--tagline {
-    padding-left: 0;
-    padding-right: 0;
-}
-
-.pricing-hero,
+.page-hero,
 .pricing-content,
 .projects-content,
 .faq-content,
 .cta-content {
     max-width: 1200px;
-}
-
-/* shared heading + lead sizes, matches the h2s on the homepage */
-.pricing-intro h2,
-.projects-intro h2,
-.faq-intro h2,
-.cta-content h2 {
-    max-width: 900px;
-    margin: 0px;
-    font-size: clamp(2.5rem, 7vw, 6rem);
-    line-height: 0.98;
-}
-
-.pricing-intro p,
-.projects-intro p,
-.faq-intro p,
-.cta-copy p {
-    max-width: 560px;
-    margin: 2rem 0 0;
-    font-size: clamp(1.08rem, 1.5vw, 1.35rem);
-    line-height: 1.45;
-}
-
-
-/* * hero */
-.pricing-hero h1 {
-    margin: 0px;
-    font-size: clamp(2.75rem, 8vw, 7rem);
-    line-height: 1;
-}
-
-.pricing-hero-bottom {
-    display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr);
-    gap: clamp(2rem, 8vw, 8rem);
-    margin-top: clamp(3rem, 6vw, 5rem);
-    padding-top: 2rem;
-    border-top: 1px solid color-mix(in srgb, var(--tertiary-white) 22%, transparent);
-}
-
-.pricing-hero-lead {
-    max-width: 520px;
-    margin: 0px;
-    font-size: clamp(1.08rem, 1.5vw, 1.35rem);
-    line-height: 1.5;
-    opacity: .76;
-}
-
-/* in-page links; negative margin lines the first link up with the lead */
-.pricing-toc {
-    list-style: none;
-    margin: -.75rem 0 0;
-    padding: 0px;
-}
-
-.pricing-toc a {
-    display: flex;
-    justify-content: space-between;
-    padding: .75rem 0;
-    border-bottom: 1px solid color-mix(in srgb, var(--tertiary-white) 22%, transparent);
-    color: var(--tertiary-white);
-    text-decoration: none;
-    font-size: 1.1rem;
-    transition: color .2s ease;
-}
-
-.pricing-toc span {
-    display: inline-block;
-    transition: transform .2s ease;
-}
-
-.pricing-toc a:hover,
-.pricing-toc a:focus-visible {
-    color: var(--primary-purple);
-}
-
-.pricing-toc a:hover span,
-.pricing-toc a:focus-visible span {
-    transform: translateY(3px);
 }
 
 
@@ -147,7 +43,7 @@ html {
 
 .price-key p {
     margin: .4rem 0 0;
-    font-size: .9rem;
+    font-size: var(--fs-small);
 }
 
 .price-key p:first-child {
@@ -160,7 +56,7 @@ html {
 }
 
 .pack-audience {
-    font-size: 1rem;
+    font-size: var(--fs-body);
     font-weight: bold;
     font-variant: small-caps;
     opacity: .62;
@@ -168,7 +64,7 @@ html {
 
 .pack-name {
     margin-top: .35rem;
-    font-size: clamp(1.35rem, 2.3vw, 2.15rem);
+    font-size: var(--fs-title);
     font-weight: bold;
     line-height: 1.05;
 }
@@ -182,7 +78,7 @@ html {
 
 .pack-note {
     margin-top: .6rem;
-    font-size: .95rem;
+    font-size: var(--fs-small);
     line-height: 1.35;
     opacity: .7;
 }
@@ -191,7 +87,7 @@ html {
 .price-group th {
     padding: 3.5rem 0 .75rem .75rem;
     border-bottom: 1px solid rgba(1, 1, 1, .55);
-    font-size: 1.05rem;
+    font-size: var(--fs-body);
     font-weight: bold;
     font-variant: small-caps;
 }
@@ -217,7 +113,7 @@ html {
 
 .price-service {
     display: block;
-    font-size: clamp(1.35rem, 2.3vw, 2.15rem);
+    font-size: var(--fs-title);
     font-weight: bold;
     line-height: 1.05;
 }
@@ -226,13 +122,13 @@ html {
     display: block;
     max-width: 420px;
     margin-top: .65rem;
-    font-size: 1rem;
+    font-size: var(--fs-body);
     line-height: 1.4;
 }
 
 .price-row td {
     padding-top: 1.75rem;
-    font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+    font-size: var(--fs-lead);
     font-weight: bold;
 }
 
@@ -257,36 +153,9 @@ html {
 }
 
 
-/* * larger projects, sits on the purple band */
-.projects-list {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: clamp(2rem, 4vw, 3.5rem);
-    margin-top: clamp(3rem, 6vw, 5rem);
-}
-
-.project-item {
-    display: flex;
-    flex-direction: column;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(1, 1, 1, .55);
-}
-
-.project-item h3 {
-    margin: 0px;
-    font-size: clamp(1.35rem, 2.3vw, 2.15rem);
-    line-height: 1.05;
-}
-
-.project-item p {
-    max-width: 360px;
-    margin: .65rem 0 0;
-    font-size: 1rem;
-    line-height: 1.4;
-}
-
-/* margin-top auto pushes the price to the bottom so all three line up */
-.project-item .project-price {
+/* * larger projects, laid out with .column-list from style.css.
+   * margin-top auto pushes the price to the bottom so all three line up */
+.column-item .project-price {
     margin-top: auto;
     padding-top: 1.75rem;
     font-weight: bold;
@@ -321,7 +190,7 @@ html {
     padding: 1.5rem 0;
     list-style: none;
     cursor: pointer;
-    font-size: clamp(1.2rem, 2vw, 1.75rem);
+    font-size: var(--fs-title);
     font-weight: bold;
     line-height: 1.2;
     transition: color .2s ease;
@@ -355,48 +224,23 @@ html {
     outline-offset: 4px;
 }
 
-.faq-item p {
+/* direct children only, so the label inside #faq-button keeps the button's own styling */
+.faq-item > p {
     max-width: 640px;
     margin: 0 0 1.75rem;
-    font-size: clamp(1rem, 1.3vw, 1.15rem);
+    font-size: var(--fs-body);
     line-height: 1.5;
     opacity: .76;
 }
 
-
-/* * closing call to action */
-.cta-content {
-    display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr);
-    gap: clamp(2rem, 8vw, 8rem);
-    align-items: end;
-}
-
-.cta-copy p {
-    margin-top: 0px;
-}
-
-/* overrides the centered placement from style.css */
-.cta-copy #goodbye-button {
-    margin: 2rem 0 0;
+/* button under the process answer; style comes from style.css */
+.faq-item #faq-button {
+    margin: -.5rem 0 1.75rem;
 }
 
 
 /* * styling for mobile devices and small screens */
 @media (max-width: 700px) {
-    .pricing-hero-bottom,
-    .cta-content {
-        grid-template-columns: 1fr;
-    }
-
-    .pricing-toc {
-        margin-top: 0px;
-    }
-
-    .projects-list {
-        grid-template-columns: 1fr;
-    }
-
     /* price sheet: each service gets a full-width row, with the two packs side by side underneath */
     .price-sheet,
     .price-sheet thead,
@@ -434,11 +278,11 @@ html {
     }
 
     .pack-audience {
-        font-size: .85rem;
+        font-size: var(--fs-small);
     }
 
     .pack-name {
-        font-size: 1.2rem;
+        font-size: var(--fs-lead);
     }
 
     .price-group th,
@@ -456,7 +300,6 @@ html {
         grid-template-columns: auto minmax(0, 1fr);
         align-items: center;
         padding: 1rem .5rem 1.25rem .75rem;
-        font-size: 1.1rem;
     }
 
     .price-row td::after {
@@ -464,13 +307,9 @@ html {
         grid-row: 1;
         grid-column: 1 / -1;
         margin-bottom: .3rem;
-        font-size: .85rem;
+        font-size: var(--fs-small);
         font-weight: normal;
         opacity: .62;
-    }
-
-    .price-description {
-        font-size: .95rem;
     }
 
     .faq-item summary {

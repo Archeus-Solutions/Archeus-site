@@ -3,12 +3,26 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Vi legger det digitale grunnlaget som ambisiøse bedrifter trenger for å bli lagt merke til, vinne tillit og være klare for det som kommer.">
         <title>Archeus | Hjemmeside</title>
         <link rel="stylesheet" href="style.css">
         <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon_io/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png">
         <link rel="manifest" href="assets/favicon_io/site.webmanifest">
+        <!-- canonical + social previews. switch these to pretty URLs once the host serves them -->
+        <link rel="canonical" href="https://archeus.solutions/">
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="Archeus">
+        <meta property="og:locale" content="nb_NO">
+        <meta property="og:url" content="https://archeus.solutions/">
+        <meta property="og:title" content="Archeus | Hjemmeside">
+        <meta property="og:description" content="Vi legger det digitale grunnlaget som ambisiøse bedrifter trenger for å bli lagt merke til, vinne tillit og være klare for det som kommer.">
+        <meta property="og:image" content="https://archeus.solutions/assets/og-image.png">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:image:alt" content="Archeus: Forfrem ditt inntrykk på nettet.">
+        <meta name="twitter:card" content="summary_large_image">
     </head>
     <body>
         <nav>
@@ -131,12 +145,17 @@
                 </div>
                 <div class="section-content process-content">
                     <h2>Et troverdig alternativ.</h2>
-                    <h3 class="process-link-heading">
-                        <a href="process.html">vår prosess</a>
-                    </h3>
+                    <div class="process-buttons">
+                        <button id="process-button" onclick="gotoPage('process.html')">
+                            <p>Vår prosess<span aria-hidden="true">↗</span></p>
+                        </button>
+                        <button id="portfolio-button" onclick="gotoPage('portfolio.html')">
+                            <p>Se tidligere arbeid<span aria-hidden="true">↗</span></p>
+                        </button>
+                    </div>
                     <div class="process-copy">
                         <p>Vi er stolte av å være en pålitelig og åpen konkurrent. Det er derfor folk velger oss, og vi er fast bestemt på å fortsette med det.</p>
-                        <p>En av de viktigste tingene for oss er å sørge for at klientene våre føler seg hørt. Se prosessen vår med linken ovenfor for å få en bedre forståelse av hvordan vi arbeider.</p>
+                        <p>En av de viktigste tingene for oss er å sørge for at klientene våre føler seg hørt. Se prosessen vår og hva vi har laget tidligere med knappene ovenfor, så får du en bedre forståelse av hvordan vi arbeider.</p>
                     </div>
                 </div>
             </section>

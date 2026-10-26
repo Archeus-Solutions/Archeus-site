@@ -4,6 +4,14 @@
     --tertiary-white: #e8f0e9;
     --text-color: #010101;
     --highlight-color: #7489ff;
+
+    /* type scale; every text size on the site should come from one of these */
+    --fs-hero: clamp(2.75rem, 8vw, 7rem);
+    --fs-display: clamp(2.5rem, 7vw, 6rem);
+    --fs-title: clamp(1.35rem, 2.3vw, 2.15rem);
+    --fs-lead: clamp(1.08rem, 1.5vw, 1.35rem);
+    --fs-body: 1rem;
+    --fs-small: .875rem;
 }
 
 /* selection color for text */
@@ -12,9 +20,15 @@
     color: var(--tertiary-white);
 }
 
-.page-section--services ::selection {
+.page-section--services ::selection,
+.page-section--accent ::selection {
     background-color: var(--tertiary-white);
     color: var(--secondary-black);
+}
+
+/* keeps headings clear of the sticky navbar when jumping to a section */
+html {
+    scroll-padding-top: 4rem;
 }
 
 /* smooth scrolling for in-page links on every page */
@@ -92,7 +106,7 @@ nav {
 
     color: var(--tertiary-white);
     text-decoration: none;
-    font-size: .9rem;
+    font-size: var(--fs-small);
     opacity: .6;
     transition: opacity .2s;
 }
@@ -131,13 +145,158 @@ nav {
     background-color: var(--tertiary-white);
     color: var(--text-color);
     padding: clamp(5rem,10vw,10rem);
-    border-bottom: 1px solid color-mix(in srgb, var(--secondary-black) 22%, transparent);
+}
+
+/* plain bands for the subpages. no side padding, .section-content sets the width */
+.page-section--light {
+    background-color: var(--tertiary-white);
+    color: var(--text-color);
+    padding: clamp(5rem, 10vw, 10rem) 0;
+}
+
+.page-section--accent {
+    background-color: var(--primary-purple);
+    color: var(--text-color);
+    padding: clamp(5rem, 10vw, 10rem) 0;
 }
 
 .section-content {
     width: 92%;
     margin-left: auto;
     margin-right: auto;
+}
+
+
+/* * subpage hero, used by services and process.
+   * headline across the full width, lead + links underneath */
+.page-hero h1 {
+    margin: 0px;
+    font-size: var(--fs-hero);
+    line-height: 1;
+}
+
+.page-hero-bottom {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr);
+    gap: clamp(2rem, 8vw, 8rem);
+    margin-top: clamp(3rem, 6vw, 5rem);
+    padding-top: 2rem;
+    border-top: 1px solid color-mix(in srgb, var(--tertiary-white) 22%, transparent);
+}
+
+.page-hero-lead {
+    max-width: 520px;
+    margin: 0px;
+    font-size: var(--fs-lead);
+    line-height: 1.5;
+    opacity: .76;
+}
+
+/* link list next to the lead; negative margin lines the first link up with the lead */
+.page-links {
+    list-style: none;
+    margin: -.75rem 0 0;
+    padding: 0px;
+}
+
+.page-links a {
+    display: flex;
+    justify-content: space-between;
+    padding: .75rem 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--tertiary-white) 22%, transparent);
+    color: var(--tertiary-white);
+    text-decoration: none;
+    font-size: var(--fs-lead);
+    transition: color .2s ease;
+}
+
+.page-links span {
+    display: inline-block;
+    transition: transform .2s ease;
+}
+
+.page-links a:hover,
+.page-links a:focus-visible {
+    color: var(--primary-purple);
+}
+
+/* ↓ nudges down for in-page links, ↗ nudges up and right for links to other pages */
+.page-links a:hover span,
+.page-links a:focus-visible span {
+    transform: translateY(3px);
+}
+
+.page-links a[href$=".html"]:hover span,
+.page-links a[href$=".html"]:focus-visible span {
+    transform: translate(3px, -3px);
+}
+
+
+
+/* * section heading + lead for the subpages, matches the h2s on the homepage */
+.section-intro h2,
+.cta-content h2 {
+    max-width: 900px;
+    margin: 0px;
+    font-size: var(--fs-display);
+    line-height: .98;
+}
+
+.section-intro p,
+.cta-copy p {
+    max-width: 560px;
+    margin: 2rem 0 0;
+    font-size: var(--fs-lead);
+    line-height: 1.45;
+}
+
+
+
+/* * three columns, each with a title and a short text. used by services and about */
+.column-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(2rem, 4vw, 3.5rem);
+    margin-top: clamp(3rem, 6vw, 5rem);
+}
+
+.column-item {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(1, 1, 1, .55);
+}
+
+.column-item h3 {
+    margin: 0px;
+    font-size: var(--fs-title);
+    line-height: 1.05;
+}
+
+.column-item p {
+    max-width: 360px;
+    margin: .65rem 0 0;
+    font-size: var(--fs-body);
+    line-height: 1.4;
+}
+
+
+
+/* * closing call to action for the subpages; heading on the left, text + button on the right */
+.cta-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr);
+    gap: clamp(2rem, 8vw, 8rem);
+    align-items: end;
+}
+
+.cta-copy p {
+    margin-top: 0px;
+}
+
+/* overrides the centered placement further down */
+.cta-copy #goodbye-button {
+    margin: 2rem 0 0;
 }
 
 
@@ -177,35 +336,57 @@ nav {
 #smallText {
     margin-top: 20px;
     max-width: 500px;
-    font-size: clamp(1.08rem,1.5vw,1.35rem);
+    font-size: var(--fs-lead);
     line-height: 1.5;
     font-weight: normal;
     color: var(--tertiary-white);
     opacity: .76;
 }
 
-/* book call button for welcome section */
-#welcome-button {
-    margin-top: 30px;
+/* book call button for welcome section. the process buttons on the homepage, the services FAQ, the end of the process page and the portfolio placeholder share the look */
+#welcome-button,
+#process-button,
+#faq-button,
+#start-button {
     padding: 15px 30px;
-    font-size: 1rem;
+    font-size: var(--fs-body);
     font-weight: bold;
     background-color: var(--tertiary-white);
     border: 1px solid var(--tertiary-white);
     transition: background-color .2s ease, border-color .2s ease, transform .2s ease;
 }
-#welcome-button:hover {
+#welcome-button:hover,
+#process-button:hover,
+#faq-button:hover,
+#start-button:hover {
     background-color: var(--primary-purple);
     border: 1px solid var(--primary-purple);
     transform: translateY(-4px);
 }
 
-#welcome-button p {
+#welcome-button {
+    margin-top: 30px;
+}
+
+#welcome-button p,
+#process-button p,
+#faq-button p,
+#start-button p {
     text-align: center;
     font-family: baseFont;
 }
 
-#welcome-button span {
+/* no margin on the label, so the padding alone sets the height like #goodbye-button */
+#process-button p,
+#faq-button p,
+#start-button p {
+    margin: 0px;
+}
+
+#welcome-button span,
+#process-button span,
+#faq-button span,
+#start-button span {
     margin-left: 10px;
 }
 
@@ -215,7 +396,7 @@ nav {
     display: block;
     margin: 60px auto 0;
     padding: 10px 30px;
-    font-size: 1rem;
+    font-size: var(--fs-body);
     font-weight: bold;
     background-color: var(--secondary-black);
     border: 1px solid var(--secondary-black);
@@ -336,7 +517,7 @@ nav {
 .tagline-content h2 {
     max-width: 760px;
     margin: 0px;
-    font-size: clamp(2.5rem, 7vw, 6rem);
+    font-size: var(--fs-display);
     /* line-height: 0.98; */
     display: inline;
 }
@@ -344,61 +525,58 @@ nav {
 .services-content h2 {
     max-width: 760px;
     margin: 0px;
-    font-size: clamp(2.5rem, 7vw, 6rem);
+    font-size: var(--fs-display);
     line-height: 0.98;
 }
 
 .about-content h2 {
     max-width: 760px;
     margin: 0px;
-    font-size: clamp(2.5rem, 7vw, 6rem);
+    font-size: var(--fs-display);
     line-height: 0.98;
 }
 
 .process-content h2 {
     max-width: 760px;
     margin: 0px;
-    font-size: clamp(2.5rem, 7vw, 6rem);
+    font-size: var(--fs-display);
     line-height: 0.98;
 }
-.process-content h3 {
-    max-width: 760px;
+
+/* process + portfolio buttons, side by side under the heading */
+.process-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* outlined so it reads as the second choice next to the filled process button */
+#portfolio-button {
+    padding: 15px 30px;
+    font-size: var(--fs-body);
+    font-weight: bold;
+    background-color: transparent;
+    border: 1px solid rgb(150, 150, 150);
+    transition: background-color .2s ease, border-color .2s ease, transform .2s ease;
+}
+#portfolio-button:hover {
+    background-color: var(--primary-purple);
+    border: 1px solid var(--primary-purple);
+    transform: translateY(-4px);
+}
+
+#portfolio-button p {
     margin: 0px;
-    font-size: clamp(1rem, 2.5vw, 2.5rem);
-    font-variant: small-caps;
-    line-height: 0.98;
+    text-align: center;
+    font-family: baseFont;
+    color: var(--tertiary-white);
+}
+#portfolio-button:hover p {
+    color: var(--secondary-black);
 }
 
-/* this part animates the process section link, uses all the fancy stuff below to bring out the > and move text */
-.process-link-heading a {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    color: inherit;
-    text-decoration: underline;
-    transition: transform .2s ease;
-    color: var(--highlight-color);
-}
-
-.process-link-heading a::before {
-    content: ">";
-    position: absolute;
-    right: 100%;
-    margin-right: .5rem;
-    opacity: 0;
-    transform: translateX(.5rem);
-    transition: opacity .2s ease, transform .2s ease;
-}
-
-.process-link-heading a:hover,
-.process-link-heading a:focus-visible {
-    transform: translateX(.5rem);
-}
-
-.process-link-heading a:hover::before,
-.process-link-heading a:focus-visible::before {
-    opacity: 1;
-    transform: translateX(0);
+#portfolio-button span {
+    margin-left: 10px;
 }
 
 .about-copy {
@@ -408,7 +586,7 @@ nav {
 
 .about-copy p {
     margin-top: 20px;
-    font-size: clamp(1.08rem, 1.5vw, 1.35rem);
+    font-size: var(--fs-lead);
 }
 
 .services-copy {
@@ -418,7 +596,7 @@ nav {
 
 .services-copy p {
     margin-top: 20px;
-    font-size: clamp(1.08rem, 1.5vw, 1.35rem);
+    font-size: var(--fs-lead);
 }
 
 .services-intro {
@@ -430,7 +608,7 @@ nav {
 .services-lead {
     max-width: 360px;
     margin: 2rem 0 0;
-    font-size: clamp(1.08rem, 1.5vw, 1.35rem);
+    font-size: var(--fs-lead);
     line-height: 1.45;
 }
 
@@ -457,21 +635,21 @@ nav {
 
 .service-number {
     padding-top: .35rem;
-    font-size: .8rem;
+    font-size: var(--fs-small);
     font-weight: bold;
     opacity: .62;
 }
 
 .service-details h3 {
     margin: 0;
-    font-size: clamp(1.35rem, 2.3vw, 2.15rem);
+    font-size: var(--fs-title);
     line-height: 1.05;
 }
 
 .service-details p {
     max-width: 520px;
     margin: .65rem 0 0;
-    font-size: 1rem;
+    font-size: var(--fs-body);
     line-height: 1.4;
 }
 
@@ -482,7 +660,7 @@ nav {
 
 .process-copy p {
     margin-top: 20px;
-    font-size: clamp(1.08rem, 1.5vw, 1.35rem);
+    font-size: var(--fs-lead);
 }
 
 
@@ -493,8 +671,9 @@ nav {
         gap: 60px;
     }
 
+    /* the logo would land under the text once the hero stacks, so it is dropped */
     #landing-logo {
-        margin: 0px;
+        display: none;
     }
 
     .services-content {
@@ -516,36 +695,60 @@ nav {
         padding: 1.25rem 0 1.4rem;
     }
 
-    .service-details p {
-        font-size: .95rem;
+    /* navbar: logo + book button on the first row, the page links spread out on a row underneath.
+       right-area is flattened so its links and button can be ordered around the line break (nav::after).
+       the nav prefix is needed because the desktop .right-area rules come later in this file */
+    html {
+        scroll-padding-top: 7rem;
     }
 
-    /* navbar: allow wrapping and smaller paddings on narrow screens */
     nav {
-        padding: 8px 12px;
+        flex-wrap: wrap;
+        padding: 8px 16px 0;
+    }
+
+    nav::after {
+        content: "";
+        order: 2;
+        flex-basis: 100%;
     }
 
     .navbar-logo {
-        margin-left: 10px;
+        margin-left: 0px;
         gap: 8px;
     }
 
     .right-area {
-        display: flex;
-        gap: 8px;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: flex-end;
+        display: contents;
     }
 
-    .right-area a {
-        padding-right: 12px;
-        font-size: 14px;
+    nav .right-area button {
+        order: 1;
+        margin: 0 0 0 auto;
+        padding: 6px 2px;
     }
 
-    .right-area button {
-        margin-right: 10px;
-        padding: 8px;
+    nav .right-area a {
+        order: 3;
+        flex: 1;
+        margin-top: 8px;
+        padding: 10px 0;
+        border-top: 1px solid color-mix(in srgb, var(--tertiary-white) 22%, transparent);
+        text-align: center;
+        font-size: var(--fs-small);
+    }
+
+    /* process band: logo above the text, side padding comes from .process-content instead */
+    .page-section--process {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    #process-logos {
+        max-width: 280px;
+        margin: 0 auto;
     }
 
     /* About & process: switch to single column and prevent overflow */
@@ -556,6 +759,12 @@ nav {
         gap: 1.5rem;
         max-width: 100%;
         padding: 0 2rem;
+        box-sizing: border-box;
+    }
+
+    /* block layout drops the flex gap, so the buttons get their own spacing */
+    .process-buttons {
+        margin: 1.5rem 0;
     }
 
     .about-copy,
@@ -567,7 +776,6 @@ nav {
     /* make sure headings and paragraphs break instead of overflowing */
     .about-content h2,
     .process-content h2,
-    .process-content h3,
     .services-content h2,
     .tagline-content h2 {
         word-break: break-word;
@@ -583,6 +791,17 @@ nav {
         overflow-wrap: break-word;
     }
 
+    /* shared subpage components stack into one column */
+    .page-hero-bottom,
+    .cta-content,
+    .column-list {
+        grid-template-columns: 1fr;
+    }
+
+    .page-links {
+        margin-top: 0px;
+    }
+
     /* footer: stack on mobile and scale image responsively */
     .footer-content {
         flex-direction: column;
@@ -594,6 +813,19 @@ nav {
         max-width: 48px;
         height: auto;
         width: auto;
+    }
+}
+
+
+/* the smallest phones: shrink the wordmark and the book button so they still share the first navbar row */
+@media (max-width: 360px) {
+    .navbar-logo {
+        font-size: 12px;
+    }
+
+    nav .navbar-book p {
+        margin: 2px 6px;
+        font-size: var(--fs-small);
     }
 }
 
@@ -630,6 +862,11 @@ nav {
     transition: color .2s ease;
 }
 .right-area a:hover {
+    color: var(--primary-purple);
+}
+
+/* marks the current page in the navbar */
+.right-area a[aria-current="page"] {
     color: var(--primary-purple);
 }
 
@@ -677,7 +914,7 @@ nav {
     margin: auto;
     margin-top: 3rem;
     padding: 15px 30px;
-    font-size: 1rem;
+    font-size: var(--fs-body);
     font-weight: bold;
     background-color: var(--secondary-black);
     border: 1px solid var(--secondary-black);
@@ -699,6 +936,11 @@ nav {
 }
 #goodbye-button span {
     margin-left: 10px;
+}
+
+/* the line separates the footer from a light last section */
+footer {
+    border-top: 1px solid color-mix(in srgb, var(--secondary-black) 22%, transparent);
 }
 
 .footer-content {

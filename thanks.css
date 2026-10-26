@@ -19,7 +19,7 @@
 
 #thanks-card-header h1 {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: var(--fs-title);
     margin-top: 0;
     margin-bottom: 8px;
     color: #111;
@@ -27,7 +27,7 @@
 
 #thanks-card-description {
     text-align: center;
-    font-size: 0.95rem;
+    font-size: var(--fs-body);
     color: #666;
     margin-top: 0;
     margin-bottom: 24px;
@@ -40,7 +40,7 @@
     color: #ffffff;
     border: none;
     padding: 0px 20px;
-    font-size: 0.95rem;
+    font-size: var(--fs-body);
     font-weight: 600;
     border-radius: 6px;
     cursor: pointer;

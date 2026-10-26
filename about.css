@@ -1,209 +1,131 @@
-body{
-    color: black;
-    background-color: black;
-}
+/* * styling specific to about.html, everything shared lives in style.css */
 
-#top{
-    background-color: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    padding: 20px;
-}
-
-#top-container{
-    margin-top: -5px;
-}
-
-#title{
-    color: white;
-    font-size: 2.5rem;
-    margin-left: 5%;
-    max-width: 65%;
-    margin-top: -145px;
-}
-
-#title p{
-    font-size: 1.25rem;
-    color: gray;
-    max-width: 65%;
-}
-
-.top-card{
-    flex: 1;
-    padding: 1.5rem;
-    border-top: 1px solid white;
-    border-bottom: 1px solid white;
-    max-width: 65%; 
-    margin-left: 15%;
-    list-style: circle;
-}
-
-.top-card ul {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    margin-left: 3%;
-    padding: 0;
-}
-
-#service-button {
-    font-weight: bold;
-    background-color: var(--tertiary-white);
-    border: 1px solid var(--tertiary-white);
-    transition: background-color .2s ease, border-color .2s ease, transform .2s ease;
-}
-#service-button:hover {
-    background-color: var(--primary-purple);
-    border: 1px solid var(--primary-purple);
-    transform: translateY(-4px);
-}
-
-#service-button p {
-    text-align: center;
-    font-family: baseFont;
-}
-
-#service-button span {
-    margin-left: 10px;
+.about-hero-content,
+.principles-content,
+.team-content,
+.cta-content {
+    max-width: 1200px;
 }
 
 
-#main{
-    background-color: #e8f0e9;
-    color: black;
-    padding: 60px;
-}
-
-#main-title{
-    font-size: 1.5rem;
-    text-align: center;
-    padding: 1.5rem;
-}
-
-#main-card-container{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    text-align: center;
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-#main-card{
-    border-left: black solid 1px;
-    border-right: black solid 1px;
-    font-size: 0.9rem;
-    padding: 2rem;
-}
-
-#team {
-    background-color: #7489ff;
-    padding: 40px 20px;
-}
-
-#team-container {
+/* * hero; the content fills the section so the headline + lead can sit side by side in the middle */
+.about-hero {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
-    max-width: 1000px;
-    margin: 0 auto;
+    overflow: hidden;
+}
+
+.about-hero-content {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr);
+    grid-template-areas: "title lead";
+    align-content: center;
+    align-items: center;
+    column-gap: clamp(2rem, 6vw, 6rem);
+}
+
+.about-hero-lead {
+    grid-area: lead;
+    max-width: 440px;
+    margin: 0px;
+    font-size: var(--fs-lead);
+    line-height: 1.5;
+    opacity: .76;
+}
+
+.about-hero h1 {
+    grid-area: title;
+    margin: 0px;
+    font-size: var(--fs-hero);
+    line-height: .95;
+}
+
+/* the mark is cropped by the right edge of the section */
+.about-hero-mark {
+    position: absolute;
+    top: 50%;
+    right: -14vw;
+    width: clamp(320px, 52vw, 860px);
+    transform: translateY(-50%);
+    opacity: .07;
+    pointer-events: none;
+}
+
+
+/* * principles; laid out with .column-list from style.css */
+.principles-link {
+    margin: clamp(2.5rem, 5vw, 4rem) 0 0;
+    font-size: var(--fs-lead);
+}
+
+.principles-link a {
+    color: var(--text-color);
+    text-decoration-color: var(--primary-purple);
+    text-underline-offset: .2em;
+    transition: color .2s ease;
+}
+
+.principles-link a:hover,
+.principles-link a:focus-visible {
+    color: var(--primary-purple);
+}
+
+.principles-link span {
+    margin-left: .5rem;
+}
+
+
+/* * who we are, sits on the purple band */
+.team-list {
+    margin-top: clamp(3rem, 6vw, 5rem);
+    border-top: 1px solid rgba(1, 1, 1, .55);
 }
 
 .team-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 2rem;
-    padding: 2rem 0;
-    border-bottom: 1px solid black; 
+    display: grid;
+    grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+    gap: clamp(1rem, 6vw, 6rem);
+    padding: clamp(1.75rem, 3vw, 2.5rem) 0;
+    border-bottom: 1px solid rgba(1, 1, 1, .55);
 }
 
-.team-row.reverse {
-    flex-direction: row-reverse;
-    gap: 20rem;
-}
-
-.team-row h2 {
-    flex: 1;
-    font-size: 1.8rem;
-    margin: 0;
+.team-row h3 {
+    margin: 0px;
+    font-size: var(--fs-title);
+    line-height: 1.05;
 }
 
 .team-row p {
-    flex: 1;
-    font-size: 1rem;
-    margin: 0;
+    max-width: 640px;
+    margin: 0px;
+    font-size: var(--fs-lead);
+    line-height: 1.5;
 }
 
 
-#end {
-    background-color: #e8f0e9;
-    color: black;
-    padding: 90px;
-}
+/* * styling for mobile devices and small screens */
+@media (max-width: 700px) {
+    /* headline + lead stack, still centered in the hero. the mark moves up to the top corner */
+    .about-hero-content {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "title"
+            "lead";
+        row-gap: 2rem;
+    }
 
-#end-card {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
+    /* the mark stays centered behind the text, cropped to about half by the right edge */
+    .about-hero-mark {
+        right: -45vw;
+        width: 90vw;
+    }
 
-.end-left {
-    flex: 1;
-}
-
-.end-left h1 {
-    font-size: 3rem;
-    margin: 0;
-    white-space: nowrap;
-}
-
-.end-right {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem; 
-}
-
-.end-right p {
-    font-size: 1rem;
-    margin: 0;
-    max-width: 100%;
-    color: gray;
-}
-
-#team-button {
-    display: inline-block;
-    margin: 0;
-    padding: 15px 30px;
-    font-size: 1rem;
-    font-weight: bold;
-    background-color: var(--secondary-black);
-    border: 1px solid var(--secondary-black);
-    transition: background-color .2s ease, border-color .2s ease, transform .2s ease;
-    cursor: pointer;
-}
-
-#team-button:hover {
-    background-color: var(--primary-purple);
-    border: 1px solid var(--primary-purple);
-    transform: translateY(-4px);
-}
-
-#team-button a {
-    text-decoration: none;
-    font-family: baseFont;
-    color: var(--tertiary-white);
-}
-
-#team-button:hover a {
-    color: var(--secondary-black);
-}
-
-#team-button span {
-    margin-left: 10px;
+    /* title sits close to its text, the rows themselves keep their spacing */
+    .team-row {
+        grid-template-columns: 1fr;
+        row-gap: .75rem;
+    }
 }
