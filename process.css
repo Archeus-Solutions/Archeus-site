@@ -1,0 +1,647 @@
+/* * styling specific to process.html, everything shared lives in style.css */
+
+.process-hero-content,
+.route,
+.steps-content,
+.after-content,
+.process-cta-content {
+    max-width: 1200px;
+}
+
+/* small label above a headline, used in the hero and the closing section */
+.process-kicker {
+    margin: 0 0 1.25rem;
+    font-size: var(--fs-body);
+    font-weight: bold;
+    font-variant: small-caps;
+    letter-spacing: .04em;
+    color: var(--primary-purple);
+}
+
+
+/* * hero; headline at the top, route pushed to the bottom of the screen */
+.process-hero {
+    display: flex;
+    flex-direction: column;
+}
+
+.process-hero h1 {
+    margin: 0px;
+    font-size: var(--fs-hero);
+    line-height: .95;
+}
+
+.process-hero-lead {
+    max-width: 560px;
+    margin: clamp(2rem, 4vw, 3rem) 0 0;
+    font-size: var(--fs-lead);
+    line-height: 1.5;
+    opacity: .76;
+}
+
+
+/* * route; one stop per step on a line, each stop links to its step further down.
+   * margin-top auto pushes it to the bottom of the hero */
+.route {
+    --route-top: clamp(4rem, 8vw, 6rem);
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+    margin-top: auto;
+    margin-bottom: 0px;
+    padding: var(--route-top) 0 0;
+    list-style: none;
+}
+
+/* the line runs through the middle of the dots */
+.route::before {
+    content: "";
+    position: absolute;
+    top: calc(var(--route-top) + 7px);
+    left: 0px;
+    right: 0px;
+    height: 1px;
+    background-color: color-mix(in srgb, var(--tertiary-white) 22%, transparent);
+}
+
+.route a {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+    padding-top: 2.25rem;
+    color: var(--tertiary-white);
+    text-decoration: none;
+}
+
+.route a::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 16px;
+    height: 16px;
+    box-sizing: border-box;
+    border: 2px solid var(--primary-purple);
+    border-radius: 50%;
+    background-color: var(--secondary-black);
+    transition: background-color .2s ease, transform .2s ease;
+}
+
+.route-number {
+    font-size: var(--fs-small);
+    font-weight: bold;
+    opacity: .62;
+}
+
+.route-title {
+    font-size: var(--fs-lead);
+    font-weight: bold;
+    transition: color .2s ease;
+}
+
+.route-title span {
+    display: inline-block;
+    margin-left: .5rem;
+    transition: transform .2s ease;
+}
+
+.route a:hover .route-title,
+.route a:focus-visible .route-title {
+    color: var(--primary-purple);
+}
+
+.route a:hover::before,
+.route a:focus-visible::before {
+    background-color: var(--primary-purple);
+    transform: scale(1.2);
+}
+
+.route a:hover .route-title span,
+.route a:focus-visible .route-title span {
+    transform: translateY(3px);
+}
+
+
+/* * steps; timeline with a rail on the left and an outlined number per step */
+.steps-intro {
+    margin-bottom: clamp(3.5rem, 7vw, 6rem);
+}
+
+.steps {
+    --rail-gap: clamp(1.75rem, 4vw, 3.5rem);
+    position: relative;
+    margin: 0px;
+    padding: 0 0 0 var(--rail-gap);
+    list-style: none;
+}
+
+/* the rail. ::after is the purple fill, only shown where scroll-driven animations work (bottom of file) */
+.steps::before,
+.steps::after {
+    content: "";
+    position: absolute;
+    top: 1rem;
+    bottom: 0px;
+    left: 0px;
+    width: 2px;
+    background-color: rgba(1, 1, 1, .15);
+}
+
+.steps::after {
+    display: none;
+    background-color: var(--primary-purple);
+    transform-origin: top;
+}
+
+.step {
+    position: relative;
+    display: grid;
+    grid-template-columns: clamp(5rem, 12vw, 11rem) minmax(0, 1fr);
+    column-gap: clamp(1.5rem, 4vw, 4rem);
+    padding-bottom: clamp(5rem, 10vw, 8rem);
+}
+
+.step:last-child {
+    padding-bottom: 0px;
+}
+
+/* the dot on the rail where each step starts */
+.step::before {
+    content: "";
+    position: absolute;
+    top: calc(1rem - 8px);
+    left: calc(-1 * var(--rail-gap) - 7px);
+    width: 16px;
+    height: 16px;
+    box-sizing: border-box;
+    border: 2px solid var(--secondary-black);
+    border-radius: 50%;
+    background-color: var(--tertiary-white);
+}
+
+/* sticks while you read a long step. sized outside the type scale on purpose, like .pack-price on services */
+.step-number {
+    position: sticky;
+    top: 6rem;
+    align-self: start;
+    font-size: clamp(3.5rem, 9vw, 8rem);
+    font-weight: bold;
+    line-height: .8;
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--secondary-black);
+}
+
+.step-body {
+    max-width: 720px;
+}
+
+.step-kicker {
+    margin: 0px;
+    font-size: var(--fs-body);
+    font-weight: bold;
+    font-variant: small-caps;
+    letter-spacing: .04em;
+    opacity: .62;
+}
+
+.step-body h3 {
+    margin: .5rem 0 0;
+    font-size: var(--fs-title);
+    line-height: 1.05;
+}
+
+.step-lead {
+    margin: 1.5rem 0 0;
+    font-size: var(--fs-lead);
+    line-height: 1.5;
+}
+
+/* figure captions share one look across the four illustrations */
+.step-body figure {
+    margin: 2.5rem 0 0;
+}
+
+.step-body figcaption {
+    margin-bottom: .85rem;
+    font-size: var(--fs-small);
+    font-weight: bold;
+    font-variant: small-caps;
+    letter-spacing: .04em;
+    opacity: .62;
+}
+
+
+/* who does what */
+.step-roles {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+    margin-top: 2.5rem;
+}
+
+.step-role {
+    padding-top: 1rem;
+    border-top: 1px solid rgba(1, 1, 1, .55);
+}
+
+.step-role h4 {
+    margin: 0px;
+    font-size: var(--fs-lead);
+    line-height: 1;
+}
+
+.step-role ul {
+    margin: .75rem 0 0;
+    padding: 0px;
+    list-style: none;
+}
+
+.step-role li {
+    position: relative;
+    padding: .35rem 0 .35rem 1.25rem;
+    font-size: var(--fs-body);
+    line-height: 1.4;
+}
+
+.step-role li::before {
+    content: "–";
+    position: absolute;
+    left: 0px;
+    color: var(--primary-purple);
+    font-weight: bold;
+}
+
+
+/* what you have when the step is done */
+.step-result {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: .35rem 1rem;
+    margin: 2rem 0 0;
+    padding: 1rem 1.25rem;
+    background-color: var(--secondary-black);
+    color: var(--tertiary-white);
+    font-size: var(--fs-body);
+    font-weight: bold;
+    line-height: 1.4;
+}
+
+.step-result span {
+    font-variant: small-caps;
+    letter-spacing: .04em;
+    color: var(--primary-purple);
+}
+
+
+/* step 01: what to put in the first message */
+.tips ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .75rem 2rem;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+.tips li {
+    position: relative;
+    padding-left: 1.75rem;
+    font-size: var(--fs-body);
+    line-height: 1.4;
+}
+
+.tips li::before {
+    content: "✓";
+    position: absolute;
+    left: 0px;
+    font-weight: bold;
+    color: var(--primary-purple);
+}
+
+
+/* step 02: example roadmap. phase 1 is filled, later phases are dashed outlines */
+.roadmap ol {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr;
+    gap: .5rem;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+.roadmap li {
+    display: flex;
+    flex-direction: column;
+    gap: .35rem;
+    padding: 1rem 1rem 1.15rem;
+    border: 1.5px dashed rgba(1, 1, 1, .4);
+}
+
+.roadmap li.is-current {
+    background-color: var(--primary-purple);
+    border: 1.5px solid var(--primary-purple);
+}
+
+.phase-label {
+    font-size: var(--fs-small);
+    font-weight: bold;
+    opacity: .7;
+}
+
+.phase-name {
+    font-size: var(--fs-body);
+    font-weight: bold;
+    line-height: 1.3;
+}
+
+
+/* step 03: a short example exchange */
+.dialogue {
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+    max-width: 560px;
+}
+
+.dialogue-line {
+    max-width: 82%;
+    padding: .85rem 1.1rem;
+    border-radius: .9rem;
+}
+
+.dialogue-line p {
+    margin: 0px;
+    font-size: var(--fs-body);
+    line-height: 1.4;
+}
+
+.dialogue-speaker {
+    display: block;
+    margin-bottom: .2rem;
+    font-size: var(--fs-small);
+    font-weight: bold;
+    opacity: .62;
+}
+
+.from-us {
+    align-self: flex-start;
+    border-bottom-left-radius: .2rem;
+    background-color: var(--secondary-black);
+    color: var(--tertiary-white);
+}
+
+.from-you {
+    align-self: flex-end;
+    border-bottom-right-radius: .2rem;
+    background-color: var(--primary-purple);
+}
+
+
+/* step 04: meeting agenda */
+.agenda ol {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    counter-reset: agenda;
+    border: 1px solid rgba(1, 1, 1, .55);
+}
+
+.agenda li {
+    counter-increment: agenda;
+    position: relative;
+    padding: 1rem 1.25rem 1rem 3.25rem;
+    font-size: var(--fs-body);
+    line-height: 1.45;
+}
+
+.agenda li + li {
+    border-top: 1px solid rgba(1, 1, 1, .2);
+}
+
+.agenda li::before {
+    content: counter(agenda) ".";
+    position: absolute;
+    left: 1.25rem;
+    font-weight: bold;
+    color: var(--primary-purple);
+}
+
+
+/* * after V1; text on the left, loop on the right */
+.after-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+    gap: clamp(3rem, 8vw, 8rem);
+    align-items: center;
+}
+
+/* labels sit on the ring at 12, 4 and 8 o'clock (r = 35% of the box) */
+.loop {
+    position: relative;
+    width: min(100%, 440px);
+    aspect-ratio: 1;
+    margin-left: auto;
+}
+
+.loop svg {
+    position: absolute;
+    inset: 0px;
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: var(--secondary-black);
+    stroke-width: 1.5;
+}
+
+.loop svg * {
+    vector-effect: non-scaling-stroke;
+}
+
+.loop-list {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+.loop-item {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    padding: .35rem .6rem;
+    background-color: var(--primary-purple);
+    font-size: var(--fs-lead);
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.loop-item span {
+    margin-right: .4rem;
+    font-size: var(--fs-small);
+    opacity: .62;
+}
+
+.loop-item--plan {
+    top: 15%;
+    left: 50%;
+}
+
+.loop-item--build {
+    top: 67.5%;
+    left: 80.3%;
+}
+
+.loop-item--present {
+    top: 67.5%;
+    left: 19.7%;
+}
+
+.loop-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0px;
+    font-size: var(--fs-small);
+    font-weight: bold;
+    font-variant: small-caps;
+    letter-spacing: .04em;
+    opacity: .7;
+}
+
+
+/* * closing call to action */
+.process-cta h2 {
+    margin: 0px;
+    font-size: var(--fs-hero);
+    line-height: .95;
+}
+
+.process-cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5rem 2.5rem;
+    margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+.process-cta-direct {
+    max-width: 440px;
+    margin: 0px;
+    font-size: var(--fs-body);
+    line-height: 1.5;
+    opacity: .76;
+}
+
+.process-cta-direct a {
+    color: var(--tertiary-white);
+    text-decoration-color: var(--primary-purple);
+    text-underline-offset: .2em;
+    transition: color .2s ease;
+}
+
+.process-cta-direct a:hover,
+.process-cta-direct a:focus-visible {
+    color: var(--primary-purple);
+}
+
+
+/* * scroll-driven extras: the rail fills up as you read and each dot lights up when you reach it.
+   * browsers without support just show the plain rail */
+@supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+        .steps {
+            view-timeline-name: --steps;
+        }
+
+        /* fill follows the middle of the screen: starts when the list top hits it, ends when the bottom does */
+        .steps::after {
+            display: block;
+            animation: rail-fill linear both;
+            animation-timeline: --steps;
+            animation-range: cover 50vh cover calc(100% - 50vh);
+        }
+
+        .step {
+            view-timeline-name: --step;
+        }
+
+        .step::before {
+            animation: dot-on linear both;
+            animation-timeline: --step;
+            animation-range: cover calc(50vh - 2rem) cover 50vh;
+        }
+    }
+}
+
+@keyframes rail-fill {
+    from { transform: scaleY(0); }
+    to { transform: scaleY(1); }
+}
+
+@keyframes dot-on {
+    to {
+        background-color: var(--primary-purple);
+        border-color: var(--primary-purple);
+    }
+}
+
+
+/* * styling for mobile devices and small screens */
+@media (max-width: 700px) {
+    /* route turns into a vertical list, the line moves to the left edge */
+    .route {
+        grid-template-columns: 1fr;
+        gap: 0px;
+    }
+
+    .route::before {
+        top: calc(var(--route-top) + .5rem);
+        bottom: 1.5rem;
+        left: 7px;
+        right: auto;
+        width: 1px;
+        height: auto;
+    }
+
+    .route a {
+        padding: 0 0 1.25rem 2.25rem;
+    }
+
+    .route a::before {
+        top: .15rem;
+    }
+
+    /* number above the text instead of next to it */
+    .step {
+        grid-template-columns: 1fr;
+    }
+
+    .step-number {
+        position: static;
+        margin-bottom: 1rem;
+    }
+
+    .step-roles,
+    .tips ul,
+    .roadmap ol {
+        grid-template-columns: 1fr;
+    }
+
+    .dialogue-line {
+        max-width: 90%;
+    }
+
+    .after-content {
+        grid-template-columns: 1fr;
+    }
+
+    .loop {
+        margin: 0 auto;
+    }
+
+    .loop-item {
+        font-size: var(--fs-body);
+    }
+}

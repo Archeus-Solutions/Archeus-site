@@ -1,31 +1,114 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Fyll ut skjemaet under, så svarer vi deg så fort vi kan.">
+        <title>Archeus | Kontakt oss</title>
         <link rel="stylesheet" href="style.css">
-        <title>Kontakt oss</title>
+        <link rel="stylesheet" href="contact.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon_io/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png">
+        <link rel="manifest" href="assets/favicon_io/site.webmanifest">
+        <!-- canonical + social previews. switch these to pretty URLs once the host serves them -->
+        <link rel="canonical" href="https://archeus.solutions/contact.html">
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="Archeus">
+        <meta property="og:locale" content="nb_NO">
+        <meta property="og:url" content="https://archeus.solutions/contact.html">
+        <meta property="og:title" content="Archeus | Kontakt oss">
+        <meta property="og:description" content="Fyll ut skjemaet under, så svarer vi deg så fort vi kan.">
+        <meta property="og:image" content="https://archeus.solutions/assets/og-image.png">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:image:alt" content="Archeus: Forfrem ditt inntrykk på nettet.">
+        <meta name="twitter:card" content="summary_large_image">
     </head>
     <body>
         <nav>
-            <div id="left-area">
-                <a href="index.html" id="navbar-logo">
+            <div class="left-area">
+                <a href="index.html" class="navbar-logo">
                     <img class="logo" src="assets/svgs/archeus-icon.svg" alt="archeus-logo">
                     <h1>archeus</h1>
                 </a>
             </div>
-            <div id="right-area">
-                <a href="contact.html">Kontakt oss</a>
-                <a href="">Om oss</a>
-                <button id="navbar-book">
-                    <a href="">Book et møte</a>
+            <div class="right-area">
+                <a href="services.html">Tjenester</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="about.html">Om oss</a>
+                <button class="navbar-book" onclick="gotoPage('contact.html')">
+                    <p href="contact.html">Book et møte<span aria-hidden="true">↗</span></p>
                 </button>
             </div>
         </nav>
 
-        <div class="site-content">
-            <h1>Contact oss</h1> 
-            <p>[ e-mail, sms, etc... ]</p>
+        <div class="content-wrapper">
+            <!-- E-post boksen -->
+            <div id="crm-card">
+                <div id="crm-card-header">
+                    <h1>Send oss en forespørsel</h1>
+                    <p class="crm-card-description">Fyll ut skjemaet under, så svarer vi deg så fort vi kan.</p>
+                </div>
+
+                <form action="https://api.staticforms.dev/submit" method="POST" id="contact-form">
+                    <input type="hidden" name="apiKey" value="sf_447a76f338736ace150c388b">
+                    <input type="hidden" name="redirectTo" value="https://archeus.solutions/thanks.html">
+                    
+                    <div class="form-group">
+                        <label for="name">Navn *</label>
+                        <input type="text" id="name" name="name" required placeholder="Ditt navn">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-post *</label>
+                        <input type="email" id="email" name="email" required placeholder="din.epost@adresse.no">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="company">Selskap *</label>
+                        <input type="text" id="company" name="company" required placeholder="Selskapsnavn">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Melding *</label>
+                        <textarea id="message" name="message" required placeholder="Hva kan vi hjelpe deg med?"></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <span>Send</span>
+                        <span aria-hidden="true">→</span>
+                    </button>
+
+                </form> 
+            </div>
+
+            <!-- Informasjonskortet -->
+            <div id="contact-card">
+                <div id="contact-card-header">
+                    <h1>Kontaktinformasjon</h1>
+                </div>
+                
+                <!-- Row 1: E-post -->
+                <div class="info-row">
+                    <p class="label">E-post</p>
+                    <p class="value"><a href="mailto:post@archeus.solutions">post@archeus.solutions</a></p>
+                </div>
+
+                <!-- Row 2: Telefon -->
+                <div class="info-row">
+                    <p class="label">Telefon</p>
+                    <p class="value"><a href="tel:+4741287234">41 28 72 34</a></p>
+                </div>
+
+                <!-- Row 3: Arbeidstider -->
+                <div class="info-row">
+                    <p class="label">Arbeidstider</p>
+                    <p class="value">09:00 - 17:00</p>
+                </div>
+            </div>
         </div>
+        
+        <script src="script.js"></script>
     </body>
 </html>

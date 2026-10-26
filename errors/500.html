@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!-- Error pages can be shown at any URL, so all paths start with "/" -->
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Archeus | Noe gikk galt</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/errors/errors.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/assets/favicon_io/site.webmanifest">
+</head>
+<body>
+
+    <nav>
+        <div class="left-area">
+            <a href="/index.html" class="navbar-logo">
+                <img class="logo" src="/assets/svgs/archeus-icon.svg" alt="archeus-logo">
+                <h1>archeus</h1>
+            </a>
+        </div>
+        <div class="right-area">
+            <a href="/services.html">Tjenester</a>
+            <a href="/dashboard.html">Dashboard</a>
+            <a href="/about.html">Om oss</a>
+            <button class="navbar-book" onclick="gotoPage('/contact.html')">
+                <p href="/contact.html">Book et møte<span aria-hidden="true">↗</span></p>
+            </button>
+        </div>
+    </nav>
+
+    <div id="content-wrapper">
+        <div id="error-card">
+            <p id="error-code">500</p>
+            <h1>Noe gikk galt</h1>
+            <p id="error-card-description">Det oppstod en feil hos oss. Prøv igjen om litt, eller send en e-post til <a href="mailto:post@archeus.solutions">post@archeus.solutions</a>.</p>
+            <a id="return-btn" href="/index.html">Til forsiden</a>
+        </div>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+</html>

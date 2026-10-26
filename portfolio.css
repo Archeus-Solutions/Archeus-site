@@ -1,0 +1,61 @@
+/* * styling specific to portfolio.html, everything shared lives in style.css */
+
+/* the content is centered vertically in the screen */
+.portfolio-hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.portfolio-content {
+    max-width: 1200px;
+}
+
+.portfolio-kicker {
+    margin: 0 0 1.25rem;
+    font-size: var(--fs-body);
+    font-weight: bold;
+    font-variant: small-caps;
+    letter-spacing: .04em;
+    color: var(--primary-purple);
+}
+
+.portfolio-hero h1 {
+    margin: 0px;
+    font-size: var(--fs-hero);
+    line-height: .95;
+}
+
+.portfolio-lead {
+    max-width: 560px;
+    margin: clamp(2rem, 4vw, 3rem) 0 0;
+    font-size: var(--fs-lead);
+    line-height: 1.5;
+    opacity: .76;
+}
+
+/* book button (style from style.css) with a plain link next to it */
+.portfolio-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5rem 2.5rem;
+    margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+.portfolio-link {
+    color: var(--tertiary-white);
+    font-size: var(--fs-body);
+    text-decoration-color: var(--primary-purple);
+    text-underline-offset: .2em;
+    transition: color .2s ease;
+}
+
+.portfolio-link:hover,
+.portfolio-link:focus-visible {
+    color: var(--primary-purple);
+}
+
+.portfolio-link span {
+    margin-left: .5rem;
+}
