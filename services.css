@@ -152,6 +152,15 @@
     color: var(--primary-purple);
 }
 
+.is-price::before {
+    content: "*";
+    display: inline-block;
+    width: .7em;
+    margin-right: .35em;
+    margin-left: .05em;
+    font-weight: bold;
+    color: var(--primary-purple);
+}
 
 /* * larger projects, laid out with .column-list from style.css.
    * margin-top auto pushes the price to the bottom so all three line up */
