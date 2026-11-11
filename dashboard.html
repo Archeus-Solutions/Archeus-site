@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="no">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- placeholder page, kept out of search results until there is work to show -->
+        <meta name="robots" content="noindex">
+        <meta name="description" content="Her kommer et utvalg av prosjektene vi har jobbet med.">
+        <title>Archeus | Tidligere arbeid</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="portfolio.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon_io/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png">
+        <link rel="manifest" href="assets/favicon_io/site.webmanifest">
+    </head>
+    <body>
+        <nav>
+            <div class="left-area">
+                <a href="index.html" class="navbar-logo">
+                    <img class="logo" src="assets/svgs/archeus-icon.svg" alt="archeus-logo">
+                    <h1>archeus</h1>
+                </a>
+            </div>
+            <div class="right-area">
+                <a href="services.html">Tjenester</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="about.html">Om oss</a>
+                <button class="navbar-book" onclick="gotoPage('contact.html')">
+                    <p href="contact.html">Book et møte<span aria-hidden="true">↗</span></p>
+                </button>
+            </div>
+        </nav>
+
+        <main>
+            <!-- * work in progress; one screen with the message and a way onwards.
+                 * replace with the real portfolio once there are projects to show -->
+            <section id="top" class="page-section page-section--dark portfolio-hero">
+                <div class="section-content portfolio-content">
+                    <h1>Vi jobber<br>med <span id="blue">saken.</span></h1>
+                    <p class="portfolio-lead">Denne siden er under arbeid. Snart finner du et utvalg av prosjektene vi har laget her. Frem til da forteller vi gjerne mer om hva vi har gjort, bare ta kontakt.</p>
+                    <div class="portfolio-actions">
+                        <button id="start-button" onclick="gotoPage('contact.html')">
+                            <p>Book et møte<span aria-hidden="true">↗</span></p>
+                        </button>
+                        <a class="portfolio-link" href="process.html">Se hvordan vi jobber<span aria-hidden="true">↗</span></a>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <div class="footer-content">
+                    <div class="footer-left">
+                        <img src="assets/svgs/archeus-icon-dark-img.png" alt="archeus-logo">
+                        <h1>archeus</h1>
+                    </div>
+                    <p>&copy; 2026 Archeus. Alle rettigheter reservert.</p>
+                </div>
+            </footer>
+        </main>
+
+        <script src="script.js"></script>
+    </body>
+</html>
