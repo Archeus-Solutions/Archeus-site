@@ -19,6 +19,7 @@
 
 	respond /health 200
 
+	# Security headers
 	header {
 		X-XSS-Protection "1; mode=block"
 		X-Content-Type-Options "nosniff"
@@ -29,15 +30,25 @@
 
 	root * .
 
+	# Strip .html from URLs (e.g. /services.html -> /services and /index.html -> /)
+	@indexHtml path /index.html
+	redir @indexHtml / 301
+
+	@htmlExt path_regexp html ^/(.+)\.html$
+	redir @htmlExt /{re.html.1} 301
+
+	# Handle static files
 	file_server {
 		hide .git .env* Caddyfile Dockerfile
 	}
 
+	# Compression with more formats
 	encode {
 		gzip
 		zstd
 	}
 
+	# Try files with HTML extension
 	try_files {path} {path}.html {path}/index.html
 
 	handle_errors {
