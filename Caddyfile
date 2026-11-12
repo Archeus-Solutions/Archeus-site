@@ -1,0 +1,58 @@
+{
+	admin off
+	persist_config off
+	auto_https off
+
+	log {
+		format json
+	}
+
+	servers {
+		trusted_proxies static private_ranges
+	}
+}
+
+:{$PORT:80} {
+	log {
+		format json
+	}
+
+	respond /health 200
+
+	# Security headers
+	header {
+		X-XSS-Protection "1; mode=block"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		Content-Security-Policy "default-src 'self'; img-src 'self' data: https: *; style-src 'self' 'unsafe-inline' https: *; script-src 'self' 'unsafe-inline' https: *; font-src 'self' data: https: *; connect-src 'self' https: *; media-src 'self' https: *; object-src 'none'; frame-src 'self' https: *;"
+		-Server
+	}
+
+	root * .
+
+	# Strip .html from URLs (e.g. /services.html -> /services and /index.html -> /)
+	@indexHtml path /index.html
+	redir @indexHtml / 301
+
+	@htmlExt path_regexp html ^/(.+)\.html$
+	redir @htmlExt /{re.html.1} 301
+
+	# Handle static files
+	file_server {
+		hide .git .env* Caddyfile Dockerfile
+	}
+
+	# Compression with more formats
+	encode {
+		gzip
+		zstd
+	}
+
+	# Try files with HTML extension
+	try_files {path} {path}.html {path}/index.html
+
+	handle_errors {
+		rewrite * /errors/{err.status_code}.html
+		file_server
+	}
+}
